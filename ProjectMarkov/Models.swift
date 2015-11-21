@@ -58,6 +58,10 @@ import UIKit
 //}
 
 class ThemeModel: NSObject, NSCoding {
+    
+    let nameKey = "name"
+    let motifsKey = "motifs"
+    
     var name = ""
     
     var motifs = [MotifModel]()
@@ -68,12 +72,17 @@ class ThemeModel: NSObject, NSCoding {
     
     required init?(coder aDecoder: NSCoder) {
         
-        if let decodedName = aDecoder.decodeObjectForKey("name") as? String {
+        if let decodedName = aDecoder.decodeObjectForKey(nameKey) as? String {
             
             name = decodedName
             
         } else {
             name = "?!?"
+        }
+        
+        if let decodedMotifs = aDecoder.decodeObjectForKey(motifsKey) as? [MotifModel] {
+            
+            motifs = decodedMotifs
         }
         
         super.init()
@@ -82,16 +91,47 @@ class ThemeModel: NSObject, NSCoding {
     func encodeWithCoder(aCoder: NSCoder) {
         
         print("Saving Theme")
-        aCoder.encodeObject(name, forKey: "name")
+        aCoder.encodeObject(name, forKey: nameKey)
+        aCoder.encodeObject(motifs, forKey: motifsKey)
     }
 }
 
-struct MotifModel {
+class MotifModel: NSObject, NSCoding {
+    
+    let selectedKey = "selected"
     
     var text: String
     var selected = true
     init(string: String) {
         text = string
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        if let decodedText = aDecoder.decodeObjectForKey("text") as? String {
+            
+            text = decodedText
+            
+        } else {
+            text = "?!?"
+        }
+        
+        if let decodedSelected = aDecoder.decodeObjectForKey(selectedKey) as? Bool {
+            
+            selected = decodedSelected
+            
+        } else {
+            selected = false
+        }
+        
+        super.init()
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        
+        print("Saving Motif")
+        aCoder.encodeObject(text, forKey: "text")
+        aCoder.encodeObject(selected, forKey: selectedKey)
     }
 }
 
