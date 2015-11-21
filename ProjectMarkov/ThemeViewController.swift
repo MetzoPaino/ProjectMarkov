@@ -56,6 +56,7 @@ class ThemeViewController: UIViewController, MotifsViewControllerDelegate {
                     } else if view is VariationsViewController {
                         
                         variationsViewController = view as! VariationsViewController
+                        variationsViewController.variations = theme.variations
                     }
                 }
             }
@@ -73,6 +74,7 @@ class ThemeViewController: UIViewController, MotifsViewControllerDelegate {
     
     func motifsViewControllerReceivedVariation(variation: VariationModel) {
         
+        theme.variations.append(variation)
         variationsViewController.receiveNewVariation(variation)
     }
 }

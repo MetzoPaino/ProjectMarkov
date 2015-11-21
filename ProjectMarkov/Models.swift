@@ -61,11 +61,13 @@ class ThemeModel: NSObject, NSCoding {
     
     let nameKey = "name"
     let motifsKey = "motifs"
-    
+    let variationsKey = "variations"
+
     var name = ""
     
     var motifs = [MotifModel]()
-    
+    var variations = [VariationModel]()
+
     init(name: String) {
         self.name = name
     }
@@ -85,6 +87,11 @@ class ThemeModel: NSObject, NSCoding {
             motifs = decodedMotifs
         }
         
+        if let decodedVariations = aDecoder.decodeObjectForKey(variationsKey) as? [VariationModel] {
+            
+            variations = decodedVariations
+        }
+        
         super.init()
     }
     
@@ -93,11 +100,13 @@ class ThemeModel: NSObject, NSCoding {
         print("Saving Theme")
         aCoder.encodeObject(name, forKey: nameKey)
         aCoder.encodeObject(motifs, forKey: motifsKey)
+        aCoder.encodeObject(variations, forKey: variationsKey)
     }
 }
 
 class MotifModel: NSObject, NSCoding {
     
+    let textKey = "text"
     let selectedKey = "selected"
     
     var text: String
@@ -108,7 +117,7 @@ class MotifModel: NSObject, NSCoding {
     
     required init?(coder aDecoder: NSCoder) {
         
-        if let decodedText = aDecoder.decodeObjectForKey("text") as? String {
+        if let decodedText = aDecoder.decodeObjectForKey(textKey) as? String {
             
             text = decodedText
             
@@ -130,19 +139,22 @@ class MotifModel: NSObject, NSCoding {
     func encodeWithCoder(aCoder: NSCoder) {
         
         print("Saving Motif")
-        aCoder.encodeObject(text, forKey: "text")
+        aCoder.encodeObject(text, forKey: textKey)
         aCoder.encodeObject(selected, forKey: selectedKey)
     }
 }
 
-struct VariationModel {
+class VariationModel: NSObject, NSCoding {
+    
+    let displayStringKey = "displayString"
+    let variationArrayKey = "variationArray"
     
     var displayString: String!
     var variation = [MarkovWord]()
 
     init(variation: [MarkovWord]) {
         self.variation = variation
-        displayString = createDisplayString(self.variation)
+//        displayString = createDisplayString(self.variation)
     }
     
     func createDisplayString(variation: [MarkovWord]) -> String {
@@ -159,4 +171,31 @@ struct VariationModel {
         }
         return string
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        if let decodedDisplayString = aDecoder.decodeObjectForKey(displayStringKey) as? String {
+            
+            displayString = decodedDisplayString
+            
+        } else {
+            
+            displayString = "?!?"
+        }
+        
+        if let decodedVariationArray = aDecoder.decodeObjectForKey(variationArrayKey) as? [MarkovWord] {
+            
+            variation = decodedVariationArray
+        }
+        
+        super.init()
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        
+        print("Saving Variation")
+        aCoder.encodeObject(displayString, forKey: displayStringKey)
+        aCoder.encodeObject(variation, forKey: variationArrayKey)
+    }
+
 }

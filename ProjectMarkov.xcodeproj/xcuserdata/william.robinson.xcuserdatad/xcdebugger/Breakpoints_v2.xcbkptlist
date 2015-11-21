@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/MarkovGenerator.swift"
-            timestampString = "468688349.656084"
+            timestampString = "469824818.609688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
+            startingLineNumber = "526"
+            endingLineNumber = "526"
             landmarkName = "createPrefixesToDepthSizeFromProvidedText(_:prefixesArray:depth:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/MarkovGenerator.swift"
-            timestampString = "468688349.656084"
+            timestampString = "469824818.609688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "490"
-            endingLineNumber = "490"
+            startingLineNumber = "599"
+            endingLineNumber = "599"
             landmarkName = "findMatchingPrefixes(_:validPrefixes:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/MarkovGenerator.swift"
-            timestampString = "468688349.656084"
+            timestampString = "469824818.609688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "631"
-            endingLineNumber = "631">
+            startingLineNumber = "740"
+            endingLineNumber = "740">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -82,11 +82,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/MarkovGenerator.swift"
-            timestampString = "468688349.656084"
+            timestampString = "469824818.609688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "637"
-            endingLineNumber = "637">
+            startingLineNumber = "746"
+            endingLineNumber = "746">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -128,11 +128,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/MarkovGenerator.swift"
-            timestampString = "468688349.656084"
+            timestampString = "469824818.609688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "458"
+            endingLineNumber = "458"
             landmarkName = "pickStartingWordsFromMarkovPart(_:)"
             landmarkType = "5">
             <Locations>
@@ -176,11 +176,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/MarkovGenerator.swift"
-            timestampString = "468688349.656084"
+            timestampString = "469824818.609688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
+            startingLineNumber = "507"
+            endingLineNumber = "507"
             landmarkName = "searchForSuffixWithPrefixArrayFromMarkovPartArray(_:markovPartArray:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -192,11 +192,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/MarkovGenerator.swift"
-            timestampString = "468605075.217074"
+            timestampString = "469824818.609688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "composeMarkovChainFromStringsArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -208,11 +208,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/MarkovGenerator.swift"
-            timestampString = "468605075.217074"
+            timestampString = "469824818.609688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
             landmarkName = "composeMarkovChainFromStringsArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -224,11 +224,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/MarkovGenerator.swift"
-            timestampString = "468605075.217074"
+            timestampString = "469824818.609688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
             landmarkName = "composeMarkovChainFromStringsArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -240,11 +240,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/MarkovGenerator.swift"
-            timestampString = "468602645.535598"
+            timestampString = "469824818.609688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "composeMarkovChainFromStringsArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -252,7 +252,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/MotifsViewController.swift"
@@ -268,15 +268,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/ThemeViewController.swift"
-            timestampString = "469814421.607122"
+            timestampString = "469825459.187623"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "motifsViewControllerReceivedVariation(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -284,7 +284,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectMarkov/VariationsViewController.swift"

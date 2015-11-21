@@ -48,7 +48,7 @@ extension MutableCollectionType where Index == Int {
 struct PrefixesAndSuffix {
     
     var prefixes = [MarkovWord]()
-    var suffix = MarkovWord()
+    var suffix = MarkovWord(word: "", index: (0,0), hasBeenUsed: false)
 }
 
 struct MarkovPart {
@@ -56,12 +56,121 @@ struct MarkovPart {
     var wordsArray = [MarkovWord]()
 }
 
-struct MarkovWord {
+class MarkovWord: NSObject, NSCoding {
     
+    let wordKey = "word"
+    let indexSectionKey = "indexSection"
+    let indexPointKey = "indexPoint"
+    let hasBeenUsedKey = "hasBeenUsed"
+
     var word = ""
     var index = (section: Int(), point: Int())
     var hasBeenUsed = false
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        if let decodedWord = aDecoder.decodeObjectForKey(wordKey) as? String {
+            
+            word = decodedWord
+            
+        } else {
+            
+            word = "?!?"
+        }
+        
+        if let decodedIndexSection = aDecoder.decodeObjectForKey(indexSectionKey) as? Int {
+            
+            index.section = decodedIndexSection
+        }
+        
+        if let decodedIndexPoint = aDecoder.decodeObjectForKey(indexPointKey) as? Int {
+            
+            index.point = decodedIndexPoint
+        }
+        
+        if let decodedHasBeenUsed = aDecoder.decodeObjectForKey(hasBeenUsedKey) as? Bool {
+            
+            hasBeenUsed = decodedHasBeenUsed
+        }
+        
+        super.init()
+    }
+    
+    init(word: String, index: (Int, Int), hasBeenUsed: Bool) {
+        
+        self.word = word
+        self.index = index
+        self.hasBeenUsed = hasBeenUsed
+        super.init()
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        
+        print("Saving Markov Word")
+        aCoder.encodeObject(wordKey, forKey: word)
+        aCoder.encodeObject(index.section, forKey: indexSectionKey)
+        aCoder.encodeObject(index.point, forKey: indexPointKey)
+        aCoder.encodeObject(hasBeenUsed, forKey: hasBeenUsedKey)
+    }
 }
+
+//extension MarkovWord {
+//    class HelperClass: NSObject, NSCoding {
+//
+//        var markovWord: MarkovWord?
+//
+//        init(markovWord: MarkovWord) {
+//            self.markovWord = markovWord
+//            super.init()
+//        }
+////
+////        class func path() -> String {
+////            let documentsPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).first
+////            let path = documentsPath?.stringByAppendingString("/Person")
+////            return path!
+////        }
+////
+//        required init?(coder aDecoder: NSCoder) {
+//            guard let word = aDecoder.decodeObjectForKey("word") as? String else {
+//                markovWord = nil;
+//                super.init();
+//                return nil
+//            }
+//            
+//            guard let indexSection = aDecoder.decodeObjectForKey("indexSection") as? Int else {
+//                markovWord = nil;
+//                super.init();
+//                return nil
+//            }
+//            
+//            guard let indexPoint = aDecoder.decodeObjectForKey("indexPoint") as? Int else {
+//                markovWord = nil;
+//                super.init();
+//                return nil
+//            }
+//            
+//            guard let hasBeenUsed = aDecoder.decodeObjectForKey("hasBeenUsed") as? Bool else {
+//                markovWord = nil;
+//                super.init();
+//                return nil
+//            }
+//            let index = (indexSection, indexPoint)
+//            markovWord = MarkovWord(word: word, index: index, hasBeenUsed: hasBeenUsed)
+//
+//            super.init()
+//        }
+//
+//        func encodeWithCoder(aCoder: NSCoder) {
+//            
+//            print("Encoding Markov Word")
+//            aCoder.encodeObject(markovWord!.word, forKey: "word")
+//            aCoder.encodeObject(markovWord!.index.section, forKey: "indexSection")
+//            aCoder.encodeObject(markovWord!.index.point, forKey: "indexPoint")
+//            aCoder.encodeObject(markovWord!.hasBeenUsed, forKey: "hasBeenUsed")
+//        }
+//    }
+//}
+
 
 enum FindStartingWordsError: ErrorType {
     
