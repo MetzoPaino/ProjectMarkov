@@ -12,21 +12,24 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var testArray = [ThemeModel]()
-
+//    var testArray = [ThemeModel]()
+    var dataManager: DataManager!
+    
+    var themesArray = [ThemeModel]()
     // MARK: - Setup View
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        testArray.append(createTheOldManAndTheSeaTheme())
-        testArray.append(createHelloTheme())
-        testArray.append(createMrsDallowayTheme())
-        testArray.append(createConstellationTheme())
-        testArray.append(createTheOtherTheme())
-        testArray.append(createSacksTheme())
-        testArray.append(createQuestionsTheme())
-        testArray.append(createDirectQuotesTheme())
+        themesArray = dataManager.themes
+//        testArray.append(createTheOldManAndTheSeaTheme())
+//        testArray.append(createHelloTheme())
+//        testArray.append(createMrsDallowayTheme())
+//        testArray.append(createConstellationTheme())
+//        testArray.append(createTheOtherTheme())
+//        testArray.append(createSacksTheme())
+//        testArray.append(createQuestionsTheme())
+//        testArray.append(createDirectQuotesTheme())
         
         var divider: CGFloat = 4.0
         
@@ -72,7 +75,7 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
             
             if let sender = sender as? Int {
                 
-                controller.theme = testArray[sender - 1]
+                controller.theme = themesArray[sender - 1]
             }
             
         }
@@ -102,7 +105,7 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return testArray.count + 1
+        return themesArray.count + 1
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -119,7 +122,7 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
 //            cell.nameTextView.font = UIFont.systemFontOfSize(28)
             cell.nameLabel.preferredMaxLayoutWidth = 100
 
-            cell.nameLabel.text = testArray[indexPath.row - 1].name
+            cell.nameLabel.text = themesArray[indexPath.row - 1].name
 
             return cell
         }
@@ -170,8 +173,8 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func newModelViewControllerCreateNewThemeWithName(name: String) {
         
-        let theme = ThemeModel(string: name)
-        testArray.append(theme)
+        let theme = ThemeModel(name: name)
+        themesArray.append(theme)
         collectionView.reloadData()
         
     }

@@ -25,6 +25,7 @@
 		0A4BD4F31BC171550024C582 /* Motifs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A4BD4F11BC171550024C582 /* Motifs.storyboard */; };
 		0A6A4E8C1BC5499200773D97 /* Variations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A6A4E8A1BC5499200773D97 /* Variations.storyboard */; };
 		0A6A4E8E1BC54B1900773D97 /* VariationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A4E8D1BC54B1900773D97 /* VariationsViewController.swift */; };
+		0A8CD5391C00D18C0074AAFA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8CD5381C00D18C0074AAFA /* DataManager.swift */; };
 		0ABBB1231BEF8FAD0013A111 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBB1221BEF8FAD0013A111 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		0A4BD4F21BC171550024C582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Motifs.storyboard; sourceTree = "<group>"; };
 		0A6A4E8B1BC5499200773D97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Variations.storyboard; sourceTree = "<group>"; };
 		0A6A4E8D1BC54B1900773D97 /* VariationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariationsViewController.swift; sourceTree = "<group>"; };
+		0A8CD5381C00D18C0074AAFA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Models/DataManager.swift; sourceTree = "<group>"; };
 		0ABBB1221BEF8FAD0013A111 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Extensions/Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				0A173DC81BC02018007EF5B3 /* NewModelViewController.swift */,
 				0A4BD4E81BC1272A0024C582 /* ThemeCollectionViewCell.swift */,
 				0A173DCA1BC023B9007EF5B3 /* Models.swift */,
+				0A8CD5381C00D18C0074AAFA /* DataManager.swift */,
 				0AE457B71BDD3F010051C260 /* Theme */,
 				0A41450D1BC93B150083B218 /* CreationViewController.swift */,
 				0A41450F1BC93BE50083B218 /* MarkovGenerator.swift */,
@@ -210,6 +213,7 @@
 				0A41450E1BC93B150083B218 /* CreationViewController.swift in Sources */,
 				0A2BE0C21BDCD12B00529A3A /* ThemeCreator.swift in Sources */,
 				0A4BD4EE1BC1676F0024C582 /* ThemeViewController.swift in Sources */,
+				0A8CD5391C00D18C0074AAFA /* DataManager.swift in Sources */,
 				0A173DB91BBFB9A8007EF5B3 /* ThemesViewController.swift in Sources */,
 				0A173DC91BC02018007EF5B3 /* NewModelViewController.swift in Sources */,
 				0ABBB1231BEF8FAD0013A111 /* Extensions.swift in Sources */,

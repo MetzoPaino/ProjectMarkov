@@ -15,7 +15,7 @@ class ThemeViewController: UIViewController, MotifsViewControllerDelegate {
     weak var tabBar: UITabBarController!
     weak var variationsViewController: VariationsViewController!
     
-    var theme = ThemeModel(string: "")
+    var theme = ThemeModel(name: "")
 
     // MARK: - Setup View
 

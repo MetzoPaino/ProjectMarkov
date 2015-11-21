@@ -10,7 +10,7 @@ import Foundation
 
 func createHelloTheme() -> ThemeModel {
     
-    var theme = ThemeModel(string: "Hello, is there anybody in there?")
+    var theme = ThemeModel(name: "Hello, is there anybody in there?")
     
     let helloPlaygroundMotif = MotifModel(string: "Hello, playground")
     let helloWorldMotif = MotifModel(string: "Hello, world")
@@ -55,7 +55,7 @@ func createHelloTheme() -> ThemeModel {
 
 func createTheOldManAndTheSeaTheme() -> ThemeModel {
 
-    var theme = ThemeModel(string: "The Old Man And The Sea")
+    var theme = ThemeModel(name: "The Old Man And The Sea")
     
     let motif1 = MotifModel(string: "How fresh they are and you down there six hundred feet in the cold water in the dark")
     let motif2 = MotifModel(string: "He was happy feeling the gentle pulling")
@@ -70,7 +70,7 @@ func createTheOldManAndTheSeaTheme() -> ThemeModel {
 
 func createMrsDallowayTheme() -> ThemeModel {
     
-    var theme = ThemeModel(string: "Mrs Dalloway")
+    var theme = ThemeModel(name: "Mrs Dalloway")
     
     let motif1 = MotifModel(string: "She heard the swish of Lucy's skirts, she felt like a nun who has left the world and feels fold round her the familiar veils and the response to old devotions")
     let motif2 = MotifModel(string: "Fields spread out and dark brown woods where adventurous thrushes, hopping boldly, glancing quickly, snatched the snail and tapped him on a stone, once, twice, thrice.")
@@ -86,7 +86,7 @@ func createMrsDallowayTheme() -> ThemeModel {
 
 func createConstellationTheme() -> ThemeModel {
     
-    var theme = ThemeModel(string: "Constellation")
+    var theme = ThemeModel(name: "Constellation")
 
     let motif1 = MotifModel(string: "It grows in both directions")
     let motif2 = MotifModel(string: "And I felt doubt")
@@ -135,7 +135,7 @@ func createConstellationTheme() -> ThemeModel {
 
 func createTheOtherTheme() -> ThemeModel {
     
-    var theme = ThemeModel(string: "The Other")
+    var theme = ThemeModel(name: "The Other")
     
     let motif1 = MotifModel(string: "I heard the bad guy is me")
     let motif2 = MotifModel(string: "The monstrous female")
@@ -167,7 +167,7 @@ func createTheOtherTheme() -> ThemeModel {
 
 func createSacksTheme() -> ThemeModel {
     
-    var theme = ThemeModel(string: "Sacks")
+    var theme = ThemeModel(name: "Sacks")
     
     let motif1 = MotifModel(string: "His sense of the birds")
     let motif2 = MotifModel(string: "The relation of knowledge to perception")
@@ -190,7 +190,7 @@ func createSacksTheme() -> ThemeModel {
 
 func createQuestionsTheme() -> ThemeModel {
     
-    var theme = ThemeModel(string: "Questions")
+    var theme = ThemeModel(name: "Questions")
     
     let motif1 = MotifModel(string: "Why do you care about stones?")
     let motif2 = MotifModel(string: "Does that make you sad?")
@@ -210,7 +210,7 @@ func createQuestionsTheme() -> ThemeModel {
 
 func createDirectQuotesTheme() -> ThemeModel {
     
-    var theme = ThemeModel(string: "Direct Quotes")
+    var theme = ThemeModel(name: "Direct Quotes")
     
     let motif1 = MotifModel(string: "Trying to instil a sense of fight into a world you know you'll be leaving")
     let motif2 = MotifModel(string: "The product of turmoil in symmetry")
