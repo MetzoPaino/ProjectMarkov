@@ -21,6 +21,8 @@ class NewModelViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textView: UITextView!
     
+    let marginSize = 16.0 as CGFloat
+    
     weak var delegate: NewModelViewControllerDelegate?
 
     let placeholderValues = (text: "Placeholder", color: UIColor.lightGrayColor())
@@ -37,6 +39,7 @@ class NewModelViewController: UIViewController, UITextViewDelegate {
 
     func styleView() {
         
+        textView.textContainerInset = UIEdgeInsets(top: marginSize, left: marginSize, bottom: marginSize, right: marginSize)
         textView.text = placeholderValues.text
         textView.textColor = placeholderValues.color
         textView.becomeFirstResponder()

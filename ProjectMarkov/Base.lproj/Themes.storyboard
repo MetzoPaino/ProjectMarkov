@@ -118,24 +118,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HzK-IO-h2X">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eZN-IJ-b2p">
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzK-IO-h2X">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                        <animations/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="eQq-ep-ukD" id="6b0-6J-JfI"/>
+                                        </connections>
+                                    </textView>
+                                </subviews>
                                 <animations/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outlet property="delegate" destination="eQq-ep-ukD" id="6b0-6J-JfI"/>
-                                </connections>
-                            </textView>
+                            </stackView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HzK-IO-h2X" firstAttribute="top" secondItem="27M-mc-2h8" secondAttribute="bottom" id="14h-T7-sHH"/>
-                            <constraint firstItem="HzK-IO-h2X" firstAttribute="leading" secondItem="GA9-Q6-nVQ" secondAttribute="leading" id="7Fa-cf-srj"/>
-                            <constraint firstAttribute="trailing" secondItem="HzK-IO-h2X" secondAttribute="trailing" id="Ogr-Bk-mwG"/>
-                            <constraint firstItem="Wxz-zp-jSd" firstAttribute="top" secondItem="HzK-IO-h2X" secondAttribute="bottom" id="lZB-td-6MM"/>
+                            <constraint firstAttribute="trailing" secondItem="eZN-IJ-b2p" secondAttribute="trailing" id="AFf-yI-0kV"/>
+                            <constraint firstItem="eZN-IJ-b2p" firstAttribute="top" secondItem="27M-mc-2h8" secondAttribute="bottom" id="Qt8-zq-4UY"/>
+                            <constraint firstItem="Wxz-zp-jSd" firstAttribute="top" secondItem="eZN-IJ-b2p" secondAttribute="bottom" id="T0O-SA-Zed"/>
+                            <constraint firstItem="eZN-IJ-b2p" firstAttribute="leading" secondItem="GA9-Q6-nVQ" secondAttribute="leading" id="rjx-P5-9Fp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Theme" id="OMy-6T-hla">
