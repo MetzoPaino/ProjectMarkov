@@ -19,7 +19,6 @@
 		0A41450C1BC92FD60083B218 /* Creation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A41450A1BC92FD60083B218 /* Creation.storyboard */; };
 		0A41450E1BC93B150083B218 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41450D1BC93B150083B218 /* CreationViewController.swift */; };
 		0A4145101BC93BE50083B218 /* MarkovGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41450F1BC93BE50083B218 /* MarkovGenerator.swift */; };
-		0A4BD4E91BC1272A0024C582 /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4BD4E81BC1272A0024C582 /* ThemeCollectionViewCell.swift */; };
 		0A4BD4EC1BC1645F0024C582 /* Theme.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A4BD4EA1BC1645F0024C582 /* Theme.storyboard */; };
 		0A4BD4EE1BC1676F0024C582 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4BD4ED1BC1676F0024C582 /* ThemeViewController.swift */; };
 		0A4BD4F01BC16E6E0024C582 /* MotifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4BD4EF1BC16E6E0024C582 /* MotifsViewController.swift */; };
@@ -45,7 +44,6 @@
 		0A41450B1BC92FD60083B218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Creation.storyboard; sourceTree = "<group>"; };
 		0A41450D1BC93B150083B218 /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		0A41450F1BC93BE50083B218 /* MarkovGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkovGenerator.swift; sourceTree = "<group>"; };
-		0A4BD4E81BC1272A0024C582 /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		0A4BD4EB1BC1645F0024C582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Theme.storyboard; sourceTree = "<group>"; };
 		0A4BD4ED1BC1676F0024C582 /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		0A4BD4EF1BC16E6E0024C582 /* MotifsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotifsViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 				0A173DCC1BC02ADB007EF5B3 /* Storyboards */,
 				0A173DB81BBFB9A8007EF5B3 /* ThemesViewController.swift */,
 				0A173DC81BC02018007EF5B3 /* NewModelViewController.swift */,
-				0A4BD4E81BC1272A0024C582 /* ThemeCollectionViewCell.swift */,
 				0A083F461C02057E007693B8 /* TextCollectionViewCell.swift */,
 				0A173DCA1BC023B9007EF5B3 /* Models.swift */,
 				0A8CD5381C00D18C0074AAFA /* DataManager.swift */,
@@ -223,7 +220,6 @@
 				0A173DC91BC02018007EF5B3 /* NewModelViewController.swift in Sources */,
 				0ABBB1231BEF8FAD0013A111 /* Extensions.swift in Sources */,
 				0A173DB71BBFB9A8007EF5B3 /* AppDelegate.swift in Sources */,
-				0A4BD4E91BC1272A0024C582 /* ThemeCollectionViewCell.swift in Sources */,
 				0A173DCB1BC023B9007EF5B3 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
