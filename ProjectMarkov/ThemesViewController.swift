@@ -12,6 +12,7 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let marginSize = 16.0 as CGFloat
 //    var testArray = [ThemeModel]()
     var dataManager: DataManager!
     
@@ -22,31 +23,7 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         super.viewDidLoad()
         themesArray = dataManager.themes
-//        testArray.append(createTheOldManAndTheSeaTheme())
-//        testArray.append(createHelloTheme())
-//        testArray.append(createMrsDallowayTheme())
-//        testArray.append(createConstellationTheme())
-//        testArray.append(createTheOtherTheme())
-//        testArray.append(createSacksTheme())
-//        testArray.append(createQuestionsTheme())
-//        testArray.append(createDirectQuotesTheme())
-        
-        var divider: CGFloat = 4.0
-        
-        if traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Compact {
-            
-            divider = 1.0
-        }
-        
-        let cellWidth = collectionView.bounds.width / divider
-        
-//        return CGSizeMake(cellWidth, cellWidth)
-        
-        
-        collectionView.collectionViewLayout.invalidateLayout()
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: 10, height: 10)
-        collectionView.collectionViewLayout = layout
+    
     }
     
     func setupGestureRecognizers() {
@@ -58,6 +35,13 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         self.collectionView.addGestureRecognizer(longPressGestureRecognizer)
     }
+    
+    // MAKR: - IBActions
+    
+    @IBAction func addBarButtonPressed(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("PresentAddTheme", sender: self)
+    }
+    
     
     // MARK: - Navigation
 
@@ -75,7 +59,7 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
             
             if let sender = sender as? Int {
                 
-                controller.theme = themesArray[sender - 1]
+                controller.theme = themesArray[sender]
             }
             
         }
@@ -105,69 +89,55 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return themesArray.count + 1
+        return themesArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        if indexPath.row == 0 {
-            
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("AddCell", forIndexPath: indexPath)
-            return cell
-            
-        } else {
-            
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ContentCell", forIndexPath: indexPath) as! ThemeCollectionViewCell
-//            cell.nameTextView.text = testArray[indexPath.row - 1].name
-//            cell.nameTextView.font = UIFont.systemFontOfSize(28)
-            cell.nameLabel.preferredMaxLayoutWidth = 100
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ContentCell", forIndexPath: indexPath) as! ThemeCollectionViewCell
 
-            cell.nameLabel.text = themesArray[indexPath.row - 1].name
+        cell.nameLabel.text = themesArray[indexPath.row].name
 
-            return cell
-        }
+        return cell
     }
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 16
+        return marginSize
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 16
+        return marginSize
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: marginSize, left: marginSize, bottom: marginSize, right: marginSize)
     }
     
     // MARK: - CollectionView Delegate
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        if let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) {
-            
-            if selectedCell.reuseIdentifier == "AddCell" {
-                
-                self.performSegueWithIdentifier("PresentAddTheme", sender: self)
-                
-            } else {
-                
-                self.performSegueWithIdentifier("ShowMotifsVariations", sender: indexPath.row)
-            }
-        }
+        self.performSegueWithIdentifier("ShowMotifsVariations", sender: indexPath.row)
     }
     
     // MARK: - CollectionView Flow Layout
     
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        
-//        var divider: CGFloat = 4.0
-//        
-//        if traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Compact {
-//            
-//            divider = 1.0
-//        }
-//        
-//        let cellWidth = CGRectGetWidth(collectionView.frame) / divider
-//        
-//        return CGSizeMake(cellWidth, cellWidth)
-//    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        // Width
+        
+        var divider: CGFloat = 4.0
+        
+        if traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Compact {
+            
+            divider = 1.0
+        }
+        
+        let cellWidth = CGRectGetWidth(collectionView.frame) / divider
+        
+        return CGSizeMake(cellWidth - marginSize * 2, cellWidth / 2)
+    }
     
     // MARK: - NewModelControllerDelegate
     
@@ -178,5 +148,13 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
         collectionView.reloadData()
         
     }
+    
+    // Estimated cell size code
+    //        collectionView.collectionViewLayout.invalidateLayout()
+    //        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    //        layout.estimatedItemSize = CGSize(width: 320, height: 10)
+    //        collectionView.collectionViewLayout = layout
+    //        cell.nameLabel.preferredMaxLayoutWidth = 750
+
 }
 

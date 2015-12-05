@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A083F471C02057E007693B8 /* TextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A083F461C02057E007693B8 /* TextCollectionViewCell.swift */; };
 		0A173DB71BBFB9A8007EF5B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A173DB61BBFB9A8007EF5B3 /* AppDelegate.swift */; };
 		0A173DB91BBFB9A8007EF5B3 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A173DB81BBFB9A8007EF5B3 /* ThemesViewController.swift */; };
 		0A173DBC1BBFB9A8007EF5B3 /* Themes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A173DBA1BBFB9A8007EF5B3 /* Themes.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A083F461C02057E007693B8 /* TextCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCollectionViewCell.swift; sourceTree = "<group>"; };
 		0A173DB31BBFB9A8007EF5B3 /* ProjectMarkov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectMarkov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A173DB61BBFB9A8007EF5B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A173DB81BBFB9A8007EF5B3 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				0A173DB81BBFB9A8007EF5B3 /* ThemesViewController.swift */,
 				0A173DC81BC02018007EF5B3 /* NewModelViewController.swift */,
 				0A4BD4E81BC1272A0024C582 /* ThemeCollectionViewCell.swift */,
+				0A083F461C02057E007693B8 /* TextCollectionViewCell.swift */,
 				0A173DCA1BC023B9007EF5B3 /* Models.swift */,
 				0A8CD5381C00D18C0074AAFA /* DataManager.swift */,
 				0AE457B71BDD3F010051C260 /* Theme */,
@@ -164,6 +167,7 @@
 				TargetAttributes = {
 					0A173DB21BBFB9A8007EF5B3 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = XEN7DUD59Z;
 					};
 				};
 			};
@@ -210,6 +214,7 @@
 				0A6A4E8E1BC54B1900773D97 /* VariationsViewController.swift in Sources */,
 				0A4145101BC93BE50083B218 /* MarkovGenerator.swift in Sources */,
 				0A4BD4F01BC16E6E0024C582 /* MotifsViewController.swift in Sources */,
+				0A083F471C02057E007693B8 /* TextCollectionViewCell.swift in Sources */,
 				0A41450E1BC93B150083B218 /* CreationViewController.swift in Sources */,
 				0A2BE0C21BDCD12B00529A3A /* ThemeCreator.swift in Sources */,
 				0A4BD4EE1BC1676F0024C582 /* ThemeViewController.swift in Sources */,
@@ -294,7 +299,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jake William Robinson (HVP774D6NP)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -339,7 +344,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jake William Robinson (HVP774D6NP)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -364,9 +369,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ProjectMarkov/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.williamrobinson.ProjectMarkov;
+				PRODUCT_BUNDLE_IDENTIFIER = com.metzopaino.projectmarkov;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -375,9 +381,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ProjectMarkov/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.williamrobinson.ProjectMarkov;
+				PRODUCT_BUNDLE_IDENTIFIER = com.metzopaino.projectmarkov;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

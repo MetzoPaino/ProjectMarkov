@@ -13,6 +13,7 @@ class ThemeViewController: UIViewController, MotifsViewControllerDelegate {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     weak var tabBar: UITabBarController!
+    weak var motifsViewController: MotifsViewController!
     weak var variationsViewController: VariationsViewController!
     
     var theme = ThemeModel(name: "")
@@ -34,6 +35,12 @@ class ThemeViewController: UIViewController, MotifsViewControllerDelegate {
         
         self.title = theme.name
     }
+    
+    // MARK: - IBActions
+    
+    @IBAction func addBarButtonPressed(sender: UIBarButtonItem) {
+        motifsViewController.performSegueWithIdentifier("PresentAddMotif", sender: self)
+    }
 
     // MARK: - Navigation
     
@@ -49,9 +56,9 @@ class ThemeViewController: UIViewController, MotifsViewControllerDelegate {
                     
                     if view is MotifsViewController {
                         
-                        let controller = view as! MotifsViewController
-                        controller.motifs = theme.motifs
-                        controller.delegate = self
+                        motifsViewController = view as! MotifsViewController
+                        motifsViewController.motifs = theme.motifs
+                        motifsViewController.delegate = self
                         
                     } else if view is VariationsViewController {
                         

@@ -12,6 +12,8 @@ class VariationsViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let marginSize = 16.0 as CGFloat
+
     var variations = [VariationModel]()
 
     override func viewDidLoad() {
@@ -40,19 +42,24 @@ class VariationsViewController: UIViewController {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
             
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ContentCell", forIndexPath: indexPath) as! ThemeCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ContentCell", forIndexPath: indexPath) as! TextCollectionViewCell
         let variation = variations[indexPath.row]
         
-        cell.nameTextView.text = variation.displayString
+        cell.label.text = variation.displayString
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
+        return marginSize
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
+        return marginSize
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: marginSize, left: marginSize, bottom: marginSize, right: marginSize)
     }
     
     // MARK: - CollectionView Delegate
@@ -65,8 +72,15 @@ class VariationsViewController: UIViewController {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        let cellWidth = CGRectGetWidth(collectionView.frame) / 3
+        var divider: CGFloat = 4.0
         
-        return CGSizeMake(cellWidth, cellWidth)
+        if traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Compact {
+            
+            divider = 1.0
+        }
+        
+        let cellWidth = CGRectGetWidth(collectionView.frame) / divider
+        
+        return CGSizeMake(cellWidth - marginSize * 2, cellWidth / 2)
     }
 }

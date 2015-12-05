@@ -16,6 +16,9 @@ class MotifsViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var createMarkovStringButton: UIButton!
+    
+    let marginSize = 16.0 as CGFloat
+    
     var motifs = [MotifModel]()
     
     weak var delegate: MotifsViewControllerDelegate?
@@ -34,7 +37,7 @@ class MotifsViewController: UIViewController, UICollectionViewDataSource, UIColl
     func styleView() {
         
         let disabledImage = UIImage.imageWithColor(.redColor())
-        let enabledImage = UIImage.imageWithColor(.blueColor())
+        let enabledImage = UIImage.imageWithColor(self.view.tintColor)
 
         createMarkovStringButton.setBackgroundImage(enabledImage, forState: .Normal)
         createMarkovStringButton.setBackgroundImage(disabledImage, forState: .Disabled)
@@ -95,64 +98,51 @@ class MotifsViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return motifs.count + 1
+        return motifs.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        if indexPath.row == 0 {
+        let motif = motifs[indexPath.row]
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ContentCell", forIndexPath: indexPath) as! TextCollectionViewCell
+        cell.label.text = motif.text
+        cell.selected = true;
+        
+        if motif.selected {
             
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("AddCell", forIndexPath: indexPath)
-            return cell
+            cell.backgroundColor = .whiteColor()
             
         } else {
             
-            let motif = motifs[indexPath.row - 1]
-            
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ContentCell", forIndexPath: indexPath) as! ThemeCollectionViewCell
-            cell.nameTextView.text = motif.text
-            cell.selected = true;
-            
-            if motif.selected {
-                
-                cell.backgroundColor = .greenColor()
-                
-            } else {
-                
-                cell.backgroundColor = .lightGrayColor()
-            }
-            
-            return cell
+            cell.backgroundColor = .lightGrayColor()
         }
+        
+        return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
+        return marginSize
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
+        return marginSize
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: marginSize, left: marginSize, bottom: marginSize, right: marginSize)
     }
     
     // MARK: - CollectionView Delegate
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        if let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) {
-            
-            if selectedCell.reuseIdentifier == "AddCell" {
-                
-                self.performSegueWithIdentifier("PresentAddMotif", sender: self)
-                
-            } else if selectedCell.reuseIdentifier == "ContentCell"{
-                
-                motifs[indexPath.row - 1].selected = !motifs[indexPath.row - 1].selected
-                
-                createMarkovStringButton.enabled = shouldButtonBeEnabled(motifs)
-
-                collectionView.reloadItemsAtIndexPaths([indexPath])
-            }
-        }
+        motifs[indexPath.row].selected = !motifs[indexPath.row].selected
+        
+        createMarkovStringButton.enabled = shouldButtonBeEnabled(motifs)
+        
+        collectionView.reloadItemsAtIndexPaths([indexPath])
     }
     
     // MARK: - CollectionView Flow Layout
@@ -163,12 +153,12 @@ class MotifsViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         if traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Compact {
             
-            divider = 2.0
+            divider = 1.0
         }
         
         let cellWidth = CGRectGetWidth(collectionView.frame) / divider
         
-        return CGSizeMake(cellWidth, cellWidth)
+        return CGSizeMake(cellWidth - marginSize * 2, cellWidth / 2)
     }
 
     // MARK: - NewModelControllerDelegate

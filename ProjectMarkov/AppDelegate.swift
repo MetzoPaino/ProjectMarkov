@@ -47,7 +47,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveData() {
         dataManager.saveData()
     }
-
-
 }
 
