@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContentCell" id="61t-eM-Aps" customClass="ThemeCollectionViewCell" customModule="ProjectMarkov" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContentCell" id="61t-eM-Aps" customClass="TextCollectionViewCell" customModule="ProjectMarkov" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="243" height="222"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -62,7 +62,7 @@
                                         </constraints>
                                         <size key="customSize" width="243" height="222"/>
                                         <connections>
-                                            <outlet property="nameLabel" destination="hT6-1p-sZY" id="Mla-3O-AHr"/>
+                                            <outlet property="label" destination="hT6-1p-sZY" id="ovc-ng-qCa"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

@@ -94,9 +94,9 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ContentCell", forIndexPath: indexPath) as! ThemeCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ContentCell", forIndexPath: indexPath) as! TextCollectionViewCell
 
-        cell.nameLabel.text = themesArray[indexPath.row].name
+        cell.label.text = themesArray[indexPath.row].name
 
         return cell
     }
