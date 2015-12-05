@@ -391,7 +391,7 @@ class MarkovGenerator {
     
     private func convertStringsArrayToMarkovWordArray(stringsArray:[String]) -> [MarkovPart] {
         
-        let unwantedCharacterSet = NSCharacterSet(charactersInString: "(),:' ")
+        let unwantedCharacterSet = NSCharacterSet(charactersInString: "(),:'“”\" ")
         var markovPartArray = [MarkovPart]()
         
         for (stringIndex, string) in stringsArray.enumerate() {
