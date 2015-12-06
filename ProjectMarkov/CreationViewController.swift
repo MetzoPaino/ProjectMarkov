@@ -12,7 +12,7 @@ protocol CreationViewControllerDelegate: class {
     func creationViewControllerSaveNewVariation(variation: VariationModel)
 }
 
-class CreationViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CreationViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -90,9 +90,9 @@ class CreationViewController: UIViewController, UICollectionViewDataSource, UICo
         }
         return stringsArray
     }
-    
-    
-    // MARK: - CollectionView Data Source
+}
+
+extension CreationViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -119,40 +119,37 @@ class CreationViewController: UIViewController, UICollectionViewDataSource, UICo
         return UIEdgeInsets(top: marginSize, left: marginSize, bottom: marginSize, right: marginSize)
     }
     
-    // MARK: - CollectionView Delegate
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    }
-    
-    // MARK: - CollectionView Flow Layout
-    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        
-//        return CGSizeMake(20, 20)
-//        
-//        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
-//            
-//            print(cell.bounds.size)
-//            return cell.bounds.size
-//
-//        } else {
-//            
-//            return CGSizeMake(20, 20)
-//        }
-////        let cellWidth = CGRectGetWidth(collectionView.frame) / 3
-//        // I think this should return the size of the cell that it already is?
-//
-////        return CGSizeMake(cellWidth, cellWidth)
-//    }
-    
     func collectionView(collectionView: UICollectionView, moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         
         let temp = variation.variation.removeAtIndex(sourceIndexPath.item)
         variation.variation.insert(temp, atIndex: destinationIndexPath.item)
+    }
+}
+
+//extension CreationViewController: UICollectionViewDelegate {
+//
+//    // MARK: - CollectionView Delegate
+//    
+//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//    }
+//}
+
+extension CreationViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        for word in variation.variation {
-            
-            print(word)
-        }
+        // Width & Height
+        
+        let string = variation.variation[indexPath.row].word
+        let rect = CGRectMake(0, 0, CGFloat.max, CGFloat.max)
+        
+        let label = UILabel(frame: rect)
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
+        label.text = string
+        label.sizeToFit()
+        
+        return CGSizeMake(label.bounds.width + marginSize * 2, label.bounds.height + marginSize * 2)
     }
 }
