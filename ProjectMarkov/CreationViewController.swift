@@ -35,10 +35,9 @@ class CreationViewController: UIViewController {
         longPressGesture = UILongPressGestureRecognizer(target: self, action: "handleLongGesture:")
         self.collectionView.addGestureRecognizer(longPressGesture)
         
-        collectionView.collectionViewLayout.invalidateLayout()
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: 10, height: 10)
-        collectionView.collectionViewLayout = layout
+//        var collectionViewLayout = CutOutCollectionViewLayout()
+//        collectionViewLayout.delegate = self
+//        collectionView.collectionViewLayout = CutOutCollectionViewLayout()
     }
     
     // MARK: - IBActions
@@ -153,3 +152,23 @@ extension CreationViewController: UICollectionViewDelegateFlowLayout {
         return CGSizeMake(label.bounds.width + marginSize * 2, label.bounds.height + marginSize * 2)
     }
 }
+
+//extension CreationViewController {
+//    
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        
+//        // Width & Height
+//        
+//        let string = variation.variation[indexPath.row].word
+//        let rect = CGRectMake(0, 0, CGFloat.max, CGFloat.max)
+//        
+//        let label = UILabel(frame: rect)
+//        label.numberOfLines = 0
+//        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+//        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
+//        label.text = string
+//        label.sizeToFit()
+//        
+//        return CGSizeMake(label.bounds.width + marginSize * 2, label.bounds.height + marginSize * 2)
+//    }
+//}

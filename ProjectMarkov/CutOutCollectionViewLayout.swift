@@ -28,20 +28,38 @@ import UIKit
 
 class CutOutCollectionViewLayout: UICollectionViewLayout {
 
-    weak var delegate : CutOutCollectionViewLayoutDelegate?{
-        get{
-            return self.collectionView!.delegate as? CutOutCollectionViewLayoutDelegate
-        }
+//    weak var delegate : CutOutCollectionViewLayoutDelegate?{
+//        get{
+//            return self.collectionView!.delegate as? CutOutCollectionViewLayoutDelegate
+//        }
+//    }
+    
+    override init(){
+        print("init 1")
+        
+        super.init()
     }
     
-//    weak var delegate: CutOutCollectionViewLayoutDelegate?
-    
-    internal override func invalidationContextForInteractivelyMovingItems(targetIndexPaths: [NSIndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [NSIndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext {
+    required init?(coder aDecoder: NSCoder) {
+        print("init 2")
+
         
-        let context = super.invalidationContextForInteractivelyMovingItems(targetIndexPaths, withTargetPosition: targetPosition, previousIndexPaths: previousIndexPaths, previousPosition: previousPosition)
-        
-//        self.delegate?.collectionView!(self.collectionView!, moveItemAtIndexPath: previousIndexPaths[0], toIndexPath: targetIndexPaths[0])
-        
-        return context
+        super.init(coder: aDecoder)
     }
+
+    
+    weak var delegate: CutOutCollectionViewLayoutDelegate?
+    
+    override func prepareLayout(){
+        super.prepareLayout()
+    }
+    
+//    internal override func invalidationContextForInteractivelyMovingItems(targetIndexPaths: [NSIndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [NSIndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext {
+//        
+//        let context = super.invalidationContextForInteractivelyMovingItems(targetIndexPaths, withTargetPosition: targetPosition, previousIndexPaths: previousIndexPaths, previousPosition: previousPosition)
+//        
+////        self.delegate?.collectionView!(self.collectionView!, moveItemAtIndexPath: previousIndexPaths[0], toIndexPath: targetIndexPaths[0])
+//        
+//        return context
+//    }
 }

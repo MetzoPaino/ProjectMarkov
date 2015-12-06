@@ -56,6 +56,8 @@ struct MarkovPart {
     var wordsArray = [MarkovWord]()
 }
 
+let printToLog = false
+
 class MarkovWord: NSObject, NSCoding {
     
     let wordKey = "word"
@@ -106,7 +108,9 @@ class MarkovWord: NSObject, NSCoding {
     
     func encodeWithCoder(aCoder: NSCoder) {
         
-        print("Saving Markov Word")
+        if printToLog {
+            print("Saving Markov Word")
+        }
         aCoder.encodeObject(wordKey, forKey: word)
         aCoder.encodeObject(index.section, forKey: indexSectionKey)
         aCoder.encodeObject(index.point, forKey: indexPointKey)
@@ -213,22 +217,28 @@ class MarkovGenerator {
         var variationArray = [MarkovWord]()
         var sectionLength = 0
         var currentSectionLength = 0
-        
-        print("We want to get \(variationLength) words")
+
+        if printToLog {
+            print("We want to get \(variationLength) words")
+        }
         
         while variationArray.count < variationLength {
             
             if currentSectionLength == 0 {
                 
                 sectionLength = generateRandomSeedFromLowestValueToHighestValue(4, highestValue: 10)
-                print("The section length = \(sectionLength)")
+                
+                if printToLog {
+                    print("The section length = \(sectionLength)")
+                }
             }
             
             if currentSectionLength >= sectionLength {
                 
                 currentSectionLength = 0
-                print("We have spent too long on one section, find a new one")
-                
+                if printToLog {
+                    print("We have spent too long on one section, find a new one")
+                }
                 do {
                     
                     let randomSeed = generateRandomSeedFromLowestValueToHighestValue(markovArray.startIndex, highestValue: markovArray.endIndex.predecessor())
@@ -292,8 +302,9 @@ class MarkovGenerator {
                     currentSectionLength++
                     
                 } catch {
-                    
-                    print("Need new starting point")
+                    if printToLog {
+                        print("Need new starting point")
+                    }
                     
                     if let error = error as? FindSuffixWordError {
                         
@@ -356,32 +367,38 @@ class MarkovGenerator {
                         }
                         
                     } else {
-                        
+                        if printToLog {
+
                         print("There has been a serious error! So serious it doesn't have an error type!")
+                        }
                     }
                 }
             }
-            
+            if printToLog {
+
             print("Perform validity check of words")
-            
+            }
             if !self.checkValidityOfMarkovArray(markovArray) {
-                
+                if printToLog {
+
                 print("All words are used up, we have to break")
+                }
                 break
             }
         }
-        
-        print(" ")
-        print("!!!")
+        if printToLog {
 
-        for word in variationArray {
+            print(" ")
+            print("!!!")
+
+            for word in variationArray {
             
-            print(word.word)
-        }
+                print(word.word)
+            }
         
-        print(" ")
-        print("!!!")
-
+            print(" ")
+            print("!!!")
+        }
         var variation = VariationModel(variation: variationArray)
 
         return variation
@@ -458,21 +475,28 @@ class MarkovGenerator {
                 var thirdWord = markovPart.wordsArray[randomSeed]
                 thirdWord.hasBeenUsed = true
 
-                print("1st word: \(firstWord.word) @ index: \(firstWord.index.section).\(firstWord.index.point), 2nd word: \(secondWord.word) @ index: \(secondWord.index.section).\(secondWord.index.point), 3rd word: \(thirdWord.word) @ index: \(thirdWord.index.section).\(thirdWord.index.point)")
-                print(" ")
+                if printToLog {
+                    print("1st word: \(firstWord.word) @ index: \(firstWord.index.section).\(firstWord.index.point), 2nd word: \(secondWord.word) @ index: \(secondWord.index.section).\(secondWord.index.point), 3rd word: \(thirdWord.word) @ index: \(thirdWord.index.section).\(thirdWord.index.point)")
+                    print(" ")
+                }
+
                 return (firstWord, secondWord, thirdWord)
                 
             } else {
-                
+                if printToLog {
+
                 print("1st word: \(firstWord.word), 2nd word: \(secondWord.word)")
                 print(" ")
+                }
                 throw FindStartingWordsError.UnableToFindThirdWord(firstWord: firstWord, secondWord: secondWord)
             }
             
         } else {
-            
+            if printToLog {
+
             print("1st word: \(firstWord.word)")
             print(" ")
+            }
             throw FindStartingWordsError.UnableToFindSecondWord(firstWord: firstWord, .NoWordAvailable)
         }
         
@@ -607,8 +631,10 @@ class MarkovGenerator {
                 matchingPrefixes.append(prefixesAndSuffix)
             }
         }
-        print(" ")
+        if printToLog {
 
+        print(" ")
+        }
         for prefixesAndSuffix in matchingPrefixes {
             
             var prefixesString = String()
@@ -621,7 +647,10 @@ class MarkovGenerator {
             
             prefixesString = "Matched Prefixes: \(prefixesString)Suffix: '\(prefixesAndSuffix.suffix.word)' @ \(prefixesAndSuffix.suffix.index.section). \(prefixesAndSuffix.suffix.index.point)"
 
-            print(prefixesString)
+            if printToLog {
+
+                print(prefixesString)
+            }
         }
         
         return matchingPrefixes
@@ -642,15 +671,20 @@ class MarkovGenerator {
         }
         
         if suffixArray.isEmpty {
-            
+            if printToLog {
+
             // THere must have only been ""
             print("Unable to find suffix")
+            }
             throw FindSuffixWordError.UnableToFindSuffix
             
         } else {
             
             let randomSeed = generateRandomSeedFromLowestValueToHighestValue(suffixArray.startIndex, highestValue: suffixArray.endIndex.predecessor())
+            if printToLog {
+
             print("Seed = \(randomSeed) word = \(suffixArray[randomSeed].word) index = \(suffixArray[randomSeed].index.section).\(suffixArray[randomSeed].index.point)")
+            }
             var suffix = suffixArray[randomSeed]
             suffix.hasBeenUsed = true
             return suffix
@@ -679,13 +713,18 @@ class MarkovGenerator {
             for word in markovPart.wordsArray {
                 
                 if !word.hasBeenUsed {
-                    
+                    if printToLog {
+
                     print("There are still words to be found!")
+                    }
                     return true
                 }
             }
         }
+        if printToLog {
+
         print("There are no more words to be found!")
+        }
         return false
     }
     
