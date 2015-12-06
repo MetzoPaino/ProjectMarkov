@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A083F471C02057E007693B8 /* TextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A083F461C02057E007693B8 /* TextCollectionViewCell.swift */; };
+		0A0A30B51C1497EE0079BA6D /* CutOutCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A30B41C1497EE0079BA6D /* CutOutCollectionViewLayout.swift */; };
 		0A173DB71BBFB9A8007EF5B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A173DB61BBFB9A8007EF5B3 /* AppDelegate.swift */; };
 		0A173DB91BBFB9A8007EF5B3 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A173DB81BBFB9A8007EF5B3 /* ThemesViewController.swift */; };
 		0A173DBC1BBFB9A8007EF5B3 /* Themes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A173DBA1BBFB9A8007EF5B3 /* Themes.storyboard */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		0A083F461C02057E007693B8 /* TextCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCollectionViewCell.swift; sourceTree = "<group>"; };
+		0A0A30B41C1497EE0079BA6D /* CutOutCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CutOutCollectionViewLayout.swift; sourceTree = "<group>"; };
 		0A173DB31BBFB9A8007EF5B3 /* ProjectMarkov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectMarkov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A173DB61BBFB9A8007EF5B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A173DB81BBFB9A8007EF5B3 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				0A8CD5381C00D18C0074AAFA /* DataManager.swift */,
 				0AE457B71BDD3F010051C260 /* Theme */,
 				0A41450D1BC93B150083B218 /* CreationViewController.swift */,
+				0A0A30B41C1497EE0079BA6D /* CutOutCollectionViewLayout.swift */,
 				0A41450F1BC93BE50083B218 /* MarkovGenerator.swift */,
 				0A2BE0C11BDCD12B00529A3A /* ThemeCreator.swift */,
 				0ABBB1241BEF9CD10013A111 /* Extensions */,
@@ -212,6 +215,7 @@
 				0A4145101BC93BE50083B218 /* MarkovGenerator.swift in Sources */,
 				0A4BD4F01BC16E6E0024C582 /* MotifsViewController.swift in Sources */,
 				0A083F471C02057E007693B8 /* TextCollectionViewCell.swift in Sources */,
+				0A0A30B51C1497EE0079BA6D /* CutOutCollectionViewLayout.swift in Sources */,
 				0A41450E1BC93B150083B218 /* CreationViewController.swift in Sources */,
 				0A2BE0C21BDCD12B00529A3A /* ThemeCreator.swift in Sources */,
 				0A4BD4EE1BC1676F0024C582 /* ThemeViewController.swift in Sources */,
