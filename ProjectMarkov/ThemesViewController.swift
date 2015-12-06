@@ -13,7 +13,6 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var collectionView: UICollectionView!
     
     let marginSize = 16.0 as CGFloat
-//    var testArray = [ThemeModel]()
     var dataManager: DataManager!
     
     var themesArray = [ThemeModel]()
