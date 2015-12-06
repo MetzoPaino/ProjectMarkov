@@ -131,7 +131,7 @@ class MotifsViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: marginSize, left: marginSize, bottom: marginSize, right: marginSize)
+        return UIEdgeInsets(top: marginSize, left: marginSize, bottom: marginSize * 2 + 44, right: marginSize)
     }
     
     // MARK: - CollectionView Delegate
