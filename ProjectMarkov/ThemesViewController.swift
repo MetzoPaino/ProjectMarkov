@@ -135,7 +135,19 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         let cellWidth = CGRectGetWidth(collectionView.frame) / divider
         
-        return CGSizeMake(cellWidth - marginSize * 2, cellWidth / 2)
+        // Height
+        
+        let string = themesArray[indexPath.row].name
+        let rect = CGRectMake(0, 0, cellWidth - marginSize * 4, CGFloat.max)
+        
+        let label = UILabel(frame: rect)
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle2)
+        label.text = string
+        label.sizeToFit()
+        
+        return CGSizeMake(cellWidth - marginSize * 2, label.bounds.height + marginSize * 2)
     }
     
     // MARK: - NewModelControllerDelegate

@@ -15,7 +15,7 @@ class TextCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        label.preferredMaxLayoutWidth = 50
+        label.preferredMaxLayoutWidth = 500
         
     }
     
