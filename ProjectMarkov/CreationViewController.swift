@@ -22,6 +22,11 @@ class CreationViewController: UIViewController {
     var variation = VariationModel(variation: [MarkovWord]())
     let markovGenerator = MarkovGenerator()
     
+    var originalPosition = NSIndexPath()
+    var proposedPosition = NSIndexPath()
+    
+    var movingCells = false
+    
     private var longPressGesture: UILongPressGestureRecognizer!
     
     weak var delegate: CreationViewControllerDelegate?
@@ -33,6 +38,7 @@ class CreationViewController: UIViewController {
         collectionView.reloadData()
         
         longPressGesture = UILongPressGestureRecognizer(target: self, action: "handleLongGesture:")
+        longPressGesture.minimumPressDuration = 0.25
         self.collectionView.addGestureRecognizer(longPressGesture)
         
 //        var collectionViewLayout = CutOutCollectionViewLayout()
@@ -66,6 +72,8 @@ class CreationViewController: UIViewController {
         switch(gesture.state) {
             
         case UIGestureRecognizerState.Began:
+//            movingCells = true
+            
             guard let selectedIndexPath = self.collectionView.indexPathForItemAtPoint(gesture.locationInView(self.collectionView)) else {
                 break
             }
@@ -73,6 +81,7 @@ class CreationViewController: UIViewController {
         case UIGestureRecognizerState.Changed:
             collectionView.updateInteractiveMovementTargetPosition(gesture.locationInView(gesture.view!))
         case UIGestureRecognizerState.Ended:
+            movingCells = false
             collectionView.endInteractiveMovement()
         default:
             collectionView.cancelInteractiveMovement()
@@ -125,13 +134,32 @@ extension CreationViewController: UICollectionViewDataSource {
     }
 }
 
-//extension CreationViewController: UICollectionViewDelegate {
-//
-//    // MARK: - CollectionView Delegate
-//    
+extension CreationViewController: UICollectionViewDelegate {
+
+    // MARK: - CollectionView Delegate
+    
 //    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 //    }
-//}
+    
+//    func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAtIndexPath originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath {
+//        
+//        if originalIndexPath.row == proposedIndexPath.row {
+//            print("Staying")
+//            originalPosition = originalIndexPath
+//            proposedPosition = proposedIndexPath
+//        } else {
+//            print("moving")
+//            
+//            originalPosition = originalIndexPath
+//            proposedPosition = proposedIndexPath
+//            
+//            collectionView.performBatchUpdates({ () -> Void in
+//                collectionView.collectionViewLayout.invalidateLayout()
+//                }, completion: nil)
+//        }
+//        return proposedIndexPath
+//    }
+}
 
 extension CreationViewController: UICollectionViewDelegateFlowLayout {
     
@@ -139,7 +167,26 @@ extension CreationViewController: UICollectionViewDelegateFlowLayout {
         
         // Width & Height
         
-        let string = variation.variation[indexPath.row].word
+        var string = String()
+        
+        if movingCells == true {
+            
+            if originalPosition.row == indexPath.row {
+                string = variation.variation[proposedPosition.row].word
+
+            } else if proposedPosition.row == indexPath.row {
+                
+                string = variation.variation[originalPosition.row].word
+
+            } else {
+                string = variation.variation[indexPath.row].word
+
+            }
+
+        } else {
+            string = variation.variation[indexPath.row].word
+        }
+        
         let rect = CGRectMake(0, 0, CGFloat.max, CGFloat.max)
         
         let label = UILabel(frame: rect)
