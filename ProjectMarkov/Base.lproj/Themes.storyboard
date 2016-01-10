@@ -24,7 +24,6 @@
                                         <rect key="frame" x="180" y="-32" width="240" height="128"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="eNi-fz-ARk" firstAttribute="width" secondItem="qPw-Us-PfA" secondAttribute="width" id="IFr-Ca-L5M"/>
                                     <constraint firstItem="eNi-fz-ARk" firstAttribute="centerY" secondItem="qPw-Us-PfA" secondAttribute="centerY" id="TyR-vz-le2"/>
@@ -54,7 +53,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hT6-1p-sZY">
                                                             <rect key="frame" x="0.0" y="0.0" width="211" height="190"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
