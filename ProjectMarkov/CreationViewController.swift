@@ -25,6 +25,11 @@ class CreationViewController: UIViewController {
     @IBOutlet weak var deleteArea: UIView!
     
     @IBOutlet weak var deleteAreaHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var imageView: UIImageView!
+
+    
+    
     let marginSize = 16.0 as CGFloat
 
     var motifs = [MotifModel]()
@@ -65,6 +70,34 @@ class CreationViewController: UIViewController {
         longPressGesture = UILongPressGestureRecognizer(target: self, action: "handleLongGesture:")
         longPressGesture.minimumPressDuration = 0.25
         self.collectionView.addGestureRecognizer(longPressGesture)
+        
+        if let navigationController = navigationController {
+
+            navigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+            navigationController.navigationBar.shadowImage = UIImage()
+            navigationController.navigationBar.translucent = true
+            
+            // Set vertical effect
+            let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
+                type: .TiltAlongVerticalAxis)
+            verticalMotionEffect.minimumRelativeValue = -20
+            verticalMotionEffect.maximumRelativeValue = 20
+            
+            // Set horizontal effect
+            let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
+                type: .TiltAlongHorizontalAxis)
+            horizontalMotionEffect.minimumRelativeValue = -20
+            horizontalMotionEffect.maximumRelativeValue = 20
+            
+            // Create group to combine both
+            let group = UIMotionEffectGroup()
+            group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
+            
+            // Add both effects to your view
+            self.imageView.addMotionEffect(group)
+        }
+        
+
         
 //        var collectionViewLayout = CutOutCollectionViewLayout()
 //        collectionViewLayout.delegate = self
@@ -372,49 +405,31 @@ extension CreationViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension UICollectionViewFlowLayout {
-
-    override public func invalidationContextForInteractivelyMovingItems(targetIndexPaths: [NSIndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [NSIndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext {
-        
-        
-    
-    let context = super.invalidationContextForInteractivelyMovingItems(targetIndexPaths, withTargetPosition: targetPosition, previousIndexPaths: previousIndexPaths, previousPosition: previousPosition)
-        
-        print("cray")
-        
-//        self.delegate? = nil
-        
-//       context.invalidateItemsAtIndexPaths([previousIndexPaths[0], targetIndexPaths[0]])
-
-        
-        
-        collectionView?.performBatchUpdates({ () -> Void in
-            self.collectionView?.moveItemAtIndexPath(previousIndexPaths[0], toIndexPath: targetIndexPaths[0])
-
-            }, completion:nil)
-        
-        
-//   collectionView?(self.collectionView!, moveItemAtIndexPath: previousIndexPaths[0], toIndexPath: targetIndexPaths[0])
-    
-    return context
-}
-}
-//extension CreationViewController {
+//extension UICollectionViewFlowLayout {
+//
+//    override public func invalidationContextForInteractivelyMovingItems(targetIndexPaths: [NSIndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [NSIndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext {
+//        
+//        
 //    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//    let context = super.invalidationContextForInteractivelyMovingItems(targetIndexPaths, withTargetPosition: targetPosition, previousIndexPaths: previousIndexPaths, previousPosition: previousPosition)
 //        
-//        // Width & Height
+//        print("cray")
 //        
-//        let string = variation.variation[indexPath.row].word
-//        let rect = CGRectMake(0, 0, CGFloat.max, CGFloat.max)
+////        self.delegate? = nil
 //        
-//        let label = UILabel(frame: rect)
-//        label.numberOfLines = 0
-//        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
-//        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
-//        label.text = string
-//        label.sizeToFit()
+////       context.invalidateItemsAtIndexPaths([previousIndexPaths[0], targetIndexPaths[0]])
+//
 //        
-//        return CGSizeMake(label.bounds.width + marginSize * 2, label.bounds.height + marginSize * 2)
-//    }
+//        
+//        collectionView?.performBatchUpdates({ () -> Void in
+//            self.collectionView?.moveItemAtIndexPath(previousIndexPaths[0], toIndexPath: targetIndexPaths[0])
+//
+//            }, completion:nil)
+//        
+//        
+////   collectionView?(self.collectionView!, moveItemAtIndexPath: previousIndexPaths[0], toIndexPath: targetIndexPaths[0])
+//    
+//    return context
 //}
+//}
+

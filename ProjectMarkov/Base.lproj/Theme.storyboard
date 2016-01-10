@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--Theme View Controller-->
         <scene sceneID="bAV-8p-01b">
             <objects>
-                <viewController storyboardIdentifier="Theme" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pvj-5v-PmO" customClass="ThemeViewController" customModule="ProjectMarkov" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Theme" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pvj-5v-PmO" customClass="ThemeViewController" customModule="ProjectMarkov" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mit-NV-2Yi"/>
                         <viewControllerLayoutGuide type="bottom" id="bWa-HI-aDz"/>
@@ -16,37 +16,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RkZ-LF-fcL">
-                                <rect key="frame" x="20" y="84" width="560" height="29"/>
-                                <animations/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewy-4R-goc" userLabel="NavBar View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="gNf-zn-YwX">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="fRk-wV-LiF"/>
+                                    <constraint firstItem="gNf-zn-YwX" firstAttribute="height" secondItem="ewy-4R-goc" secondAttribute="height" id="7qe-xi-wex"/>
+                                    <constraint firstItem="gNf-zn-YwX" firstAttribute="width" secondItem="ewy-4R-goc" secondAttribute="width" id="8ou-mR-BbF"/>
+                                    <constraint firstItem="gNf-zn-YwX" firstAttribute="centerY" secondItem="ewy-4R-goc" secondAttribute="centerY" id="Gz0-JF-6Z2"/>
+                                    <constraint firstItem="gNf-zn-YwX" firstAttribute="centerX" secondItem="ewy-4R-goc" secondAttribute="centerX" id="KKW-1d-htZ"/>
                                 </constraints>
-                                <segments>
-                                    <segment title="Motifs"/>
-                                    <segment title="Variations"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentedControlPressed:" destination="pvj-5v-PmO" eventType="valueChanged" id="EVT-FX-WHs"/>
-                                </connections>
-                            </segmentedControl>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyA-AX-WK2">
+                                <rect key="frame" x="0.0" y="64" width="600" height="52"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RkZ-LF-fcL">
+                                        <rect key="frame" x="225.5" y="12" width="149" height="29"/>
+                                        <segments>
+                                            <segment title="Motifs"/>
+                                            <segment title="Variations"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentedControlPressed:" destination="pvj-5v-PmO" eventType="valueChanged" id="EVT-FX-WHs"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="RkZ-LF-fcL" firstAttribute="centerY" secondItem="dyA-AX-WK2" secondAttribute="centerY" id="ISG-jJ-3PF"/>
+                                    <constraint firstItem="RkZ-LF-fcL" firstAttribute="centerX" secondItem="dyA-AX-WK2" secondAttribute="centerX" id="kq5-Hq-BKP"/>
+                                    <constraint firstAttribute="height" constant="52" id="xGY-O3-lpu"/>
+                                </constraints>
+                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WF-GX-6g5">
-                                <rect key="frame" x="0.0" y="132" width="600" height="468"/>
-                                <animations/>
+                                <rect key="frame" x="0.0" y="116" width="600" height="484"/>
                                 <connections>
                                     <segue destination="eFq-Ap-I2d" kind="embed" identifier="EmbedTabBar" id="l6b-Qr-5ke"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7WF-GX-6g5" firstAttribute="leading" secondItem="Zrb-0U-2Bb" secondAttribute="leading" id="3x8-9m-4Fy"/>
-                            <constraint firstItem="RkZ-LF-fcL" firstAttribute="leading" secondItem="Zrb-0U-2Bb" secondAttribute="leading" constant="20" id="8bf-ue-zYJ"/>
-                            <constraint firstItem="7WF-GX-6g5" firstAttribute="top" secondItem="RkZ-LF-fcL" secondAttribute="bottom" constant="20" id="Ui3-3o-UHq"/>
-                            <constraint firstAttribute="trailing" secondItem="RkZ-LF-fcL" secondAttribute="trailing" constant="20" id="bs4-wI-AZ7"/>
-                            <constraint firstItem="RkZ-LF-fcL" firstAttribute="top" secondItem="Mit-NV-2Yi" secondAttribute="bottom" constant="20" id="jDa-Dm-OAI"/>
+                            <constraint firstItem="ewy-4R-goc" firstAttribute="bottom" secondItem="dyA-AX-WK2" secondAttribute="top" id="Dec-i0-bKf"/>
+                            <constraint firstAttribute="trailing" secondItem="ewy-4R-goc" secondAttribute="trailing" id="GYE-Mn-vOj"/>
+                            <constraint firstItem="ewy-4R-goc" firstAttribute="leading" secondItem="Zrb-0U-2Bb" secondAttribute="leading" id="LOf-Cq-vuo"/>
+                            <constraint firstItem="ewy-4R-goc" firstAttribute="top" secondItem="Zrb-0U-2Bb" secondAttribute="top" id="PUm-PM-RU8"/>
+                            <constraint firstItem="dyA-AX-WK2" firstAttribute="top" secondItem="Mit-NV-2Yi" secondAttribute="bottom" id="QbD-k1-ZCx"/>
+                            <constraint firstItem="7WF-GX-6g5" firstAttribute="top" secondItem="dyA-AX-WK2" secondAttribute="bottom" id="a0g-MU-vXx"/>
+                            <constraint firstAttribute="trailing" secondItem="dyA-AX-WK2" secondAttribute="trailing" id="exI-ZQ-Qgc"/>
                             <constraint firstAttribute="trailing" secondItem="7WF-GX-6g5" secondAttribute="trailing" id="mrt-iN-L6k"/>
+                            <constraint firstItem="dyA-AX-WK2" firstAttribute="leading" secondItem="Zrb-0U-2Bb" secondAttribute="leading" id="y3k-Su-bHm"/>
                             <constraint firstAttribute="bottom" secondItem="7WF-GX-6g5" secondAttribute="bottom" id="znG-VW-EgK"/>
                         </constraints>
                     </view>
@@ -73,7 +97,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Acn-uG-Jn0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
@@ -113,7 +136,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zF2-DX-deW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -125,4 +147,7 @@
             <point key="canvasLocation" x="338" y="337"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Header" width="750" height="100"/>
+    </resources>
 </document>

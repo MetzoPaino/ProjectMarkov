@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0At-vq-ank">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0At-vq-ank">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Project Markov-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ThemesViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ThemesViewController" customModule="ProjectMarkov" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThemesViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ThemesViewController" customModule="ProjectMarkov" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,9 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPw-Us-PfA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="eNi-fz-ARk">
+                                        <rect key="frame" x="180" y="-32" width="240" height="128"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eNi-fz-ARk" firstAttribute="width" secondItem="qPw-Us-PfA" secondAttribute="width" id="IFr-Ca-L5M"/>
+                                    <constraint firstItem="eNi-fz-ARk" firstAttribute="centerY" secondItem="qPw-Us-PfA" secondAttribute="centerY" id="TyR-vz-le2"/>
+                                    <constraint firstItem="eNi-fz-ARk" firstAttribute="centerX" secondItem="qPw-Us-PfA" secondAttribute="centerX" id="hBd-lp-s0a"/>
+                                    <constraint firstItem="eNi-fz-ARk" firstAttribute="height" secondItem="qPw-Us-PfA" secondAttribute="height" id="kMo-UF-Xts"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fms-F6-ihl">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zvv-65-M0O">
                                     <size key="itemSize" width="50" height="50"/>
@@ -40,19 +54,15 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hT6-1p-sZY">
                                                             <rect key="frame" x="0.0" y="0.0" width="211" height="190"/>
-                                                            <animations/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <animations/>
                                                 </stackView>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="sUq-pk-Fjm" secondAttribute="bottom" constant="16" id="A80-Y1-7Ys"/>
@@ -72,13 +82,16 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="qPw-Us-PfA" firstAttribute="bottom" secondItem="fms-F6-ihl" secondAttribute="top" id="EGa-Hd-9nc"/>
+                            <constraint firstItem="qPw-Us-PfA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EWL-19-FJJ"/>
                             <constraint firstAttribute="trailing" secondItem="fms-F6-ihl" secondAttribute="trailing" id="F6q-VD-Fl9"/>
+                            <constraint firstItem="qPw-Us-PfA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Sza-9Q-H3F"/>
                             <constraint firstItem="fms-F6-ihl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UPm-bA-lEh"/>
                             <constraint firstItem="fms-F6-ihl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dQP-GS-1Hu"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fms-F6-ihl" secondAttribute="bottom" id="f19-xy-bcA"/>
+                            <constraint firstAttribute="trailing" secondItem="qPw-Us-PfA" secondAttribute="trailing" id="jbL-eF-o03"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Project Markov" id="VJm-dG-pkn">
@@ -90,6 +103,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="fms-F6-ihl" id="H4V-m7-1i8"/>
+                        <outlet property="imageView" destination="eNi-fz-ARk" id="V31-aZ-bDX"/>
                         <segue destination="nvO-W5-ACi" kind="presentation" identifier="PresentAddTheme" modalPresentationStyle="pageSheet" id="ivz-Gu-dNl"/>
                         <segue destination="72j-q1-JBa" kind="show" identifier="ShowMotifsVariations" id="9bf-fZ-tA9"/>
                     </connections>
@@ -123,7 +137,6 @@
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzK-IO-h2X">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
-                                        <animations/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -132,10 +145,8 @@
                                         </connections>
                                     </textView>
                                 </subviews>
-                                <animations/>
                             </stackView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eZN-IJ-b2p" secondAttribute="trailing" id="AFf-yI-0kV"/>
@@ -182,7 +193,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5qL-hG-TFq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -201,7 +215,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vAO-BE-Lvo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -213,4 +226,8 @@
             <point key="canvasLocation" x="1685" y="1059"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Header" width="750" height="100"/>
+    </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

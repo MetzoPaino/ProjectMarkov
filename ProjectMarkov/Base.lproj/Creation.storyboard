@@ -17,6 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAY-vf-Ah0" userLabel="NavBar View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="eqa-3e-tEg">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eqa-3e-tEg" firstAttribute="centerX" secondItem="YAY-vf-Ah0" secondAttribute="centerX" id="0IP-Jv-l6W"/>
+                                    <constraint firstItem="eqa-3e-tEg" firstAttribute="centerY" secondItem="YAY-vf-Ah0" secondAttribute="centerY" id="7FF-hw-KA0"/>
+                                    <constraint firstItem="eqa-3e-tEg" firstAttribute="height" secondItem="YAY-vf-Ah0" secondAttribute="height" id="I1K-Dq-9KF"/>
+                                    <constraint firstItem="eqa-3e-tEg" firstAttribute="width" secondItem="YAY-vf-Ah0" secondAttribute="width" id="zVM-JT-MGz"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46p-Kk-04o">
                                 <rect key="frame" x="0.0" y="512" width="600" height="88"/>
                                 <color key="backgroundColor" red="0.78823529410000004" green="0.15686274510000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -26,7 +41,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q7Z-DY-gWP">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8UX-Gl-9he">
                                     <size key="itemSize" width="160" height="115"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -44,6 +59,7 @@
                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SgB-Zi-PwT">
                                                     <rect key="frame" x="-40" y="-6" width="240" height="128"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7AE-Tu-uzJ">
                                                     <rect key="frame" x="16" y="16" width="128" height="83"/>
@@ -51,7 +67,6 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quk-bC-APg">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="83"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -88,8 +103,12 @@
                             <constraint firstItem="nbJ-Az-JDN" firstAttribute="top" secondItem="q7Z-DY-gWP" secondAttribute="bottom" id="1hd-kR-c9e"/>
                             <constraint firstItem="46p-Kk-04o" firstAttribute="leading" secondItem="UfN-7X-o50" secondAttribute="leading" id="1iY-HQ-8OI"/>
                             <constraint firstItem="q7Z-DY-gWP" firstAttribute="leading" secondItem="UfN-7X-o50" secondAttribute="leading" id="L3Z-EN-Eeg"/>
+                            <constraint firstItem="YAY-vf-Ah0" firstAttribute="leading" secondItem="UfN-7X-o50" secondAttribute="leading" id="Lh5-FJ-hvN"/>
+                            <constraint firstItem="YAY-vf-Ah0" firstAttribute="bottom" secondItem="q7Z-DY-gWP" secondAttribute="top" id="NTh-X0-e7C"/>
                             <constraint firstAttribute="trailing" secondItem="46p-Kk-04o" secondAttribute="trailing" id="SHF-2a-0HN"/>
+                            <constraint firstItem="YAY-vf-Ah0" firstAttribute="top" secondItem="UfN-7X-o50" secondAttribute="top" id="W8p-P2-8ym"/>
                             <constraint firstItem="nbJ-Az-JDN" firstAttribute="top" secondItem="46p-Kk-04o" secondAttribute="bottom" id="WUY-pa-oIH"/>
+                            <constraint firstAttribute="trailing" secondItem="YAY-vf-Ah0" secondAttribute="trailing" id="okf-Jp-pim"/>
                             <constraint firstItem="q7Z-DY-gWP" firstAttribute="top" secondItem="hMO-g7-zA9" secondAttribute="bottom" id="tpn-aa-Nxo"/>
                             <constraint firstAttribute="trailing" secondItem="q7Z-DY-gWP" secondAttribute="trailing" id="ycw-JP-1OX"/>
                         </constraints>
@@ -117,6 +136,7 @@
                         <outlet property="collectionView" destination="q7Z-DY-gWP" id="EhA-RI-TnD"/>
                         <outlet property="deleteArea" destination="46p-Kk-04o" id="agd-lW-DiJ"/>
                         <outlet property="deleteAreaHeightConstraint" destination="MR1-Wj-rqC" id="loq-cd-Dyi"/>
+                        <outlet property="imageView" destination="eqa-3e-tEg" id="qR7-1m-xd3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22u-Vk-qR7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,6 +151,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sdy-xM-0bi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -142,4 +165,8 @@
             <point key="canvasLocation" x="228" y="255"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Header" width="750" height="100"/>
+    </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
