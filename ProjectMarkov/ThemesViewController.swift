@@ -29,50 +29,31 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         if let navigationController = navigationController {
             
-//            let test = UIImageView(frame: navigationController.navigationBar.frame)
-//            test.image = UIImage(imageLiteral: "Header")
-//            
-//            navigationController.navigationBar.addSubview(test)
-//            test.center = navigationController.navigationBar.center
-//            
-//            navigationController.navigationBar.sendSubviewToBack(test)
-            
             navigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
             navigationController.navigationBar.shadowImage = UIImage()
             navigationController.navigationBar.translucent = true
             
+            // Set vertical effect
+            let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
+                type: .TiltAlongVerticalAxis)
+            verticalMotionEffect.minimumRelativeValue = -20
+            verticalMotionEffect.maximumRelativeValue = 20
             
+            // Set horizontal effect
+            let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
+                type: .TiltAlongHorizontalAxis)
+            horizontalMotionEffect.minimumRelativeValue = -20
+            horizontalMotionEffect.maximumRelativeValue = 20
+            
+            // Create group to combine both
+            let group = UIMotionEffectGroup()
+            group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
+            
+            // Add both effects to your view
+            self.imageView.addMotionEffect(group)
             
         }
-        
 
-        
-        
-//        let image = UIImage(imageLiteral: "Header")
-//        
-//        self.navigationController!.navigationBar.setBackgroundImage(image,
-//            forBarMetrics: .Default)
-
-        
-        // Set vertical effect
-        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
-            type: .TiltAlongVerticalAxis)
-        verticalMotionEffect.minimumRelativeValue = -20
-        verticalMotionEffect.maximumRelativeValue = 20
-        
-        // Set horizontal effect
-        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
-            type: .TiltAlongHorizontalAxis)
-        horizontalMotionEffect.minimumRelativeValue = -20
-        horizontalMotionEffect.maximumRelativeValue = 20
-        
-        // Create group to combine both
-        let group = UIMotionEffectGroup()
-        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
-        
-        // Add both effects to your view
-        self.imageView.addMotionEffect(group)
-        
         
     }
     

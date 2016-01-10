@@ -21,6 +21,8 @@ class NewModelViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     let marginSize = 16.0 as CGFloat
     
     weak var delegate: NewModelViewControllerDelegate?
@@ -33,6 +35,33 @@ class NewModelViewController: UIViewController, UITextViewDelegate {
         
         super.viewDidLoad()
         styleView()
+        
+        if let navigationController = navigationController {
+            
+            navigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+            navigationController.navigationBar.shadowImage = UIImage()
+            navigationController.navigationBar.translucent = true
+            
+            // Set vertical effect
+            let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
+                type: .TiltAlongVerticalAxis)
+            verticalMotionEffect.minimumRelativeValue = -20
+            verticalMotionEffect.maximumRelativeValue = 20
+            
+            // Set horizontal effect
+            let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
+                type: .TiltAlongHorizontalAxis)
+            horizontalMotionEffect.minimumRelativeValue = -20
+            horizontalMotionEffect.maximumRelativeValue = 20
+            
+            // Create group to combine both
+            let group = UIMotionEffectGroup()
+            group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
+            
+            // Add both effects to your view
+            self.imageView.addMotionEffect(group)
+            
+        }
     }
     
     // MARK: - Style View

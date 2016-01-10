@@ -132,6 +132,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcB-rJ-q9Q">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="iYn-lI-zab">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="iYn-lI-zab" firstAttribute="centerX" secondItem="fcB-rJ-q9Q" secondAttribute="centerX" id="kqV-VX-V96"/>
+                                    <constraint firstItem="iYn-lI-zab" firstAttribute="height" secondItem="fcB-rJ-q9Q" secondAttribute="height" id="vMI-uS-uZZ"/>
+                                    <constraint firstItem="iYn-lI-zab" firstAttribute="width" secondItem="fcB-rJ-q9Q" secondAttribute="width" id="vQb-Ag-clk"/>
+                                    <constraint firstItem="iYn-lI-zab" firstAttribute="centerY" secondItem="fcB-rJ-q9Q" secondAttribute="centerY" id="wh5-Gl-027"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eZN-IJ-b2p">
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <subviews>
@@ -150,9 +164,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eZN-IJ-b2p" secondAttribute="trailing" id="AFf-yI-0kV"/>
+                            <constraint firstItem="fcB-rJ-q9Q" firstAttribute="bottom" secondItem="eZN-IJ-b2p" secondAttribute="top" id="Ljn-87-Qx7"/>
                             <constraint firstItem="eZN-IJ-b2p" firstAttribute="top" secondItem="27M-mc-2h8" secondAttribute="bottom" id="Qt8-zq-4UY"/>
                             <constraint firstItem="Wxz-zp-jSd" firstAttribute="top" secondItem="eZN-IJ-b2p" secondAttribute="bottom" id="T0O-SA-Zed"/>
+                            <constraint firstItem="fcB-rJ-q9Q" firstAttribute="top" secondItem="GA9-Q6-nVQ" secondAttribute="top" id="bLY-CX-zMQ"/>
+                            <constraint firstItem="fcB-rJ-q9Q" firstAttribute="leading" secondItem="GA9-Q6-nVQ" secondAttribute="leading" id="jps-Ny-nw2"/>
                             <constraint firstItem="eZN-IJ-b2p" firstAttribute="leading" secondItem="GA9-Q6-nVQ" secondAttribute="leading" id="rjx-P5-9Fp"/>
+                            <constraint firstAttribute="trailing" secondItem="fcB-rJ-q9Q" secondAttribute="trailing" id="zNw-NV-0hW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Theme" id="OMy-6T-hla">
@@ -177,6 +195,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="3Uj-KH-vXQ" id="RHu-69-ksO"/>
                         <outlet property="doneButton" destination="AYe-4v-SUg" id="jL6-eT-FCx"/>
+                        <outlet property="imageView" destination="iYn-lI-zab" id="owl-Zg-raz"/>
                         <outlet property="keyboardButton" destination="TNc-lG-fDk" id="sL7-YX-fZ7"/>
                         <outlet property="textView" destination="HzK-IO-h2X" id="Wef-8a-oGi"/>
                     </connections>
@@ -215,6 +234,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vAO-BE-Lvo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
