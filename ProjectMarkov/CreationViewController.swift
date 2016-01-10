@@ -138,11 +138,12 @@ class CreationViewController: UIViewController {
                 sourceIndexPath = indexPath
                 let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TextCollectionViewCell
                 snapshot = cell.snapshot
-                updateSnapshotView(cell.center, transform: CGAffineTransformIdentity, alpha: 0.0)
+                updateSnapshotView(cell.center, transform: CGAffineTransformIdentity, alpha: 1.0)
                 collectionView.addSubview(snapshot!)
+                cell.moving = true
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.updateSnapshotView(cell.center, transform: CGAffineTransformMakeScale(1.05, 1.05), alpha: 1.0)
-                    cell.moving = true
+                    
                 })
                 movingCells = true
                 animateDeleteArea(true)
@@ -187,10 +188,11 @@ class CreationViewController: UIViewController {
             } else {
                 
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
-                    self.updateSnapshotView(cell.center, transform: CGAffineTransformIdentity, alpha: 0.0)
-                    cell.moving = false
+                    self.updateSnapshotView(cell.center, transform: CGAffineTransformIdentity, alpha: 1.0)
+                    
                 
                     }, completion: { (finished: Bool) -> Void in
+                        cell.moving = false
                         self.snapshot!.removeFromSuperview()
                         self.snapshot = nil
                         self.animateDeleteArea(false)
