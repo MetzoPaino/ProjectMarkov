@@ -11,13 +11,17 @@ import UIKit
 class TextCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var backgroundStackView: UIStackView!
+    
+    @IBOutlet weak var view: UIView!
     
     var moving: Bool = false {
         didSet {
             
             let alpha: CGFloat = moving ? 0.0 : 1.0
             label.alpha = alpha
-            self.alpha = alpha
+            view.alpha = alpha
+//            backgroundStackView.alpha = alpha
         }
     }
     
@@ -37,7 +41,7 @@ class TextCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         label.preferredMaxLayoutWidth = 500
-        
+        backgroundStackView.backgroundColor = UIColor.redColor()
     }
     
     required init?(coder aDecoder: NSCoder) {

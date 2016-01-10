@@ -160,27 +160,54 @@ class CreationViewController: UIViewController {
                 variation.variation.insert(temp, atIndex: indexPath.item)
                 collectionView.moveItemAtIndexPath(sourceIndexPath!, toIndexPath: indexPath)
                 sourceIndexPath = indexPath
+                self.collectionView.reloadData()
+
             }
             
         default:
             print("Default")
             
             let cell = collectionView.cellForItemAtIndexPath(sourceIndexPath!) as! TextCollectionViewCell
-            UIView.animateWithDuration(0.25, animations: { () -> Void in
-                self.updateSnapshotView(cell.center, transform: CGAffineTransformIdentity, alpha: 0.0)
-                cell.moving = false
-                }, completion: { (finished: Bool) -> Void in
-                    self.snapshot!.removeFromSuperview()
-                    self.snapshot = nil
-            })
-
+            
             if (location.y + snapshot!.frame.height) > deleteArea.frame.origin.y {
                 
-                variation.variation.removeAtIndex(sourceIndexPath!.item)
-                collectionView.reloadData()
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    
+                    self.snapshot!.transform = CGAffineTransformMakeScale(0.01, 0.01)
+                    cell.moving = false
+                    
+                    }, completion: { (finished: Bool) -> Void in
+                        self.snapshot!.removeFromSuperview()
+                        self.snapshot = nil
+                        self.variation.variation.removeAtIndex(self.sourceIndexPath!.item)
+                        self.collectionView.reloadData()
+                        self.animateDeleteArea(false)
+                })
+ 
+            } else {
+                
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.updateSnapshotView(cell.center, transform: CGAffineTransformIdentity, alpha: 0.0)
+                    cell.moving = false
+                
+                    }, completion: { (finished: Bool) -> Void in
+                        self.snapshot!.removeFromSuperview()
+                        self.snapshot = nil
+                        self.animateDeleteArea(false)
+                })
             }
             
-            animateDeleteArea(false)
+            
+            
+            
+            
+            
+            
+
+
+
+            
+            
 
         
         }
@@ -251,6 +278,7 @@ extension CreationViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ContentCell", forIndexPath: indexPath) as! TextCollectionViewCell
         cell.label.text = variation.variation[indexPath.row].word
+        cell.backgroundStackView.backgroundColor = .whiteColor()
         return cell
     }
     
