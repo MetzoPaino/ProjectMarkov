@@ -11,17 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-    let dataManager = DataManager()
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
-        
-        let navigationController = self.window!.rootViewController as! UINavigationController
-        let viewController = navigationController.topViewController as! ThemesViewController
-        viewController.dataManager = dataManager
-        
         return true
     }
 
@@ -31,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        saveData()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -43,11 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        saveData()
     }
     
     func saveData() {
-        dataManager.saveData()
     }
 }
 
