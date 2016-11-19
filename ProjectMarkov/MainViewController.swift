@@ -30,6 +30,9 @@ class MainViewController: UIViewController {
             defaults?.set(textArray, forKey: "TextArray")
             defaults?.synchronize()
         }
+        
+        tableView.estimatedRowHeight = 88
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     /*
@@ -51,6 +54,7 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         cell.textLabel!.text = localTextArray[indexPath.row]
+        cell.textLabel!.numberOfLines = 0
         return cell
     }
     
