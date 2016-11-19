@@ -10,8 +10,36 @@
 		0A173DB71BBFB9A8007EF5B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A173DB61BBFB9A8007EF5B3 /* AppDelegate.swift */; };
 		0A173DBE1BBFB9A8007EF5B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A173DBD1BBFB9A8007EF5B3 /* Assets.xcassets */; };
 		0A173DC11BBFB9A8007EF5B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A173DBF1BBFB9A8007EF5B3 /* LaunchScreen.storyboard */; };
-		0A4145101BC93BE50083B218 /* MarkovGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41450F1BC93BE50083B218 /* MarkovGenerator.swift */; };
+		0ACFF3651DE0AB0300ED1983 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFF3641DE0AB0300ED1983 /* ActionViewController.swift */; };
+		0ACFF3681DE0AB0300ED1983 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACFF3661DE0AB0300ED1983 /* MainInterface.storyboard */; };
+		0ACFF36C1DE0AB0300ED1983 /* ActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0ACFF3621DE0AB0300ED1983 /* ActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0ACFF3751DE0AD6100ED1983 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACFF3731DE0AD6100ED1983 /* Main.storyboard */; };
+		0ACFF3771DE0AE3F00ED1983 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFF3761DE0AE3F00ED1983 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0ACFF36A1DE0AB0300ED1983 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A173DAB1BBFB9A8007EF5B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0ACFF3611DE0AB0300ED1983;
+			remoteInfo = actionExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0ACFF3701DE0AB0300ED1983 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0ACFF36C1DE0AB0300ED1983 /* ActionExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A173DB31BBFB9A8007EF5B3 /* ProjectMarkov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectMarkov.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,11 +47,25 @@
 		0A173DBD1BBFB9A8007EF5B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A173DC01BBFB9A8007EF5B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A173DC21BBFB9A8007EF5B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A41450F1BC93BE50083B218 /* MarkovGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkovGenerator.swift; sourceTree = "<group>"; };
+		0ACFF3621DE0AB0300ED1983 /* ActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ACFF3641DE0AB0300ED1983 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		0ACFF3671DE0AB0300ED1983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		0ACFF3691DE0AB0300ED1983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ACFF3711DE0AC3600ED1983 /* ProjectMarkov.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProjectMarkov.entitlements; sourceTree = "<group>"; };
+		0ACFF3721DE0AC7A00ED1983 /* ActionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ActionExtension.entitlements; path = ActionExtension/ActionExtension.entitlements; sourceTree = SOURCE_ROOT; };
+		0ACFF3741DE0AD6100ED1983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0ACFF3761DE0AE3F00ED1983 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0A173DB01BBFB9A8007EF5B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ACFF35F1DE0AB0300ED1983 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				0A173DB51BBFB9A8007EF5B3 /* ProjectMarkov */,
+				0ACFF3631DE0AB0300ED1983 /* ActionExtension */,
 				0A173DB41BBFB9A8007EF5B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				0A173DB31BBFB9A8007EF5B3 /* ProjectMarkov.app */,
+				0ACFF3621DE0AB0300ED1983 /* ActionExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -52,9 +96,10 @@
 		0A173DB51BBFB9A8007EF5B3 /* ProjectMarkov */ = {
 			isa = PBXGroup;
 			children = (
+				0ACFF3711DE0AC3600ED1983 /* ProjectMarkov.entitlements */,
 				0A173DB61BBFB9A8007EF5B3 /* AppDelegate.swift */,
 				0A173DCC1BC02ADB007EF5B3 /* Storyboards */,
-				0A41450F1BC93BE50083B218 /* MarkovGenerator.swift */,
+				0ACFF3761DE0AE3F00ED1983 /* MainViewController.swift */,
 				0A173DBD1BBFB9A8007EF5B3 /* Assets.xcassets */,
 				0A173DBF1BBFB9A8007EF5B3 /* LaunchScreen.storyboard */,
 				0A173DC21BBFB9A8007EF5B3 /* Info.plist */,
@@ -65,8 +110,21 @@
 		0A173DCC1BC02ADB007EF5B3 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				0ACFF3731DE0AD6100ED1983 /* Main.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		0ACFF3631DE0AB0300ED1983 /* ActionExtension */ = {
+			isa = PBXGroup;
+			children = (
+				0ACFF3721DE0AC7A00ED1983 /* ActionExtension.entitlements */,
+				0ACFF3641DE0AB0300ED1983 /* ActionViewController.swift */,
+				0ACFF3661DE0AB0300ED1983 /* MainInterface.storyboard */,
+				0ACFF3691DE0AB0300ED1983 /* Info.plist */,
+			);
+			name = ActionExtension;
+			path = actionExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -79,15 +137,34 @@
 				0A173DAF1BBFB9A8007EF5B3 /* Sources */,
 				0A173DB01BBFB9A8007EF5B3 /* Frameworks */,
 				0A173DB11BBFB9A8007EF5B3 /* Resources */,
+				0ACFF3701DE0AB0300ED1983 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0ACFF36B1DE0AB0300ED1983 /* PBXTargetDependency */,
 			);
 			name = ProjectMarkov;
 			productName = ProjectMarkov;
 			productReference = 0A173DB31BBFB9A8007EF5B3 /* ProjectMarkov.app */;
 			productType = "com.apple.product-type.application";
+		};
+		0ACFF3611DE0AB0300ED1983 /* ActionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0ACFF36D1DE0AB0300ED1983 /* Build configuration list for PBXNativeTarget "ActionExtension" */;
+			buildPhases = (
+				0ACFF35E1DE0AB0300ED1983 /* Sources */,
+				0ACFF35F1DE0AB0300ED1983 /* Frameworks */,
+				0ACFF3601DE0AB0300ED1983 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ActionExtension;
+			productName = actionExtension;
+			productReference = 0ACFF3621DE0AB0300ED1983 /* ActionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,12 +172,30 @@
 		0A173DAB1BBFB9A8007EF5B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "William Robinson";
 				TargetAttributes = {
 					0A173DB21BBFB9A8007EF5B3 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = XEN7DUD59Z;
+						LastSwiftMigration = 0810;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					0ACFF3611DE0AB0300ED1983 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = XEN7DUD59Z;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -118,6 +213,7 @@
 			projectRoot = "";
 			targets = (
 				0A173DB21BBFB9A8007EF5B3 /* ProjectMarkov */,
+				0ACFF3611DE0AB0300ED1983 /* ActionExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -127,8 +223,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ACFF3751DE0AD6100ED1983 /* Main.storyboard in Resources */,
 				0A173DC11BBFB9A8007EF5B3 /* LaunchScreen.storyboard in Resources */,
 				0A173DBE1BBFB9A8007EF5B3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ACFF3601DE0AB0300ED1983 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ACFF3681DE0AB0300ED1983 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,12 +244,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A4145101BC93BE50083B218 /* MarkovGenerator.swift in Sources */,
+				0ACFF3771DE0AE3F00ED1983 /* MainViewController.swift in Sources */,
 				0A173DB71BBFB9A8007EF5B3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0ACFF35E1DE0AB0300ED1983 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ACFF3651DE0AB0300ED1983 /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0ACFF36B1DE0AB0300ED1983 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0ACFF3611DE0AB0300ED1983 /* ActionExtension */;
+			targetProxy = 0ACFF36A1DE0AB0300ED1983 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0A173DBF1BBFB9A8007EF5B3 /* LaunchScreen.storyboard */ = {
@@ -153,6 +274,22 @@
 				0A173DC01BBFB9A8007EF5B3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0ACFF3661DE0AB0300ED1983 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0ACFF3671DE0AB0300ED1983 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		0ACFF3731DE0AD6100ED1983 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0ACFF3741DE0AD6100ED1983 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -244,24 +381,74 @@
 		0A173DC61BBFB9A8007EF5B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ProjectMarkov/ProjectMarkov.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ProjectMarkov/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.metzopaino.projectmarkov;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		0A173DC71BBFB9A8007EF5B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ProjectMarkov/ProjectMarkov.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ProjectMarkov/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.metzopaino.projectmarkov;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		0ACFF36E1DE0AB0300ED1983 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = XEN7DUD59Z;
+				INFOPLIST_FILE = actionExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.metzopaino.projectmarkov.actionextension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0ACFF36F1DE0AB0300ED1983 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = XEN7DUD59Z;
+				INFOPLIST_FILE = actionExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.metzopaino.projectmarkov.actionextension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -285,6 +472,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		0ACFF36D1DE0AB0300ED1983 /* Build configuration list for PBXNativeTarget "ActionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ACFF36E1DE0AB0300ED1983 /* Debug */,
+				0ACFF36F1DE0AB0300ED1983 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

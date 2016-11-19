@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ActionExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>ProjectMarkov.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>0A173DB21BBFB9A8007EF5B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0ACFF3611DE0AB0300ED1983</key>
 		<dict>
 			<key>primary</key>
 			<true/>
