@@ -52,7 +52,6 @@ extension MainViewController: UITableViewDataSource {
         
         cell.textLabel!.text = localTextArray[indexPath.row]
         return cell
-        
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
