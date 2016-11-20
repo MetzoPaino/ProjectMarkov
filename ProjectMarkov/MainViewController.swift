@@ -13,10 +13,23 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var localTextArray = [String]()
+    var localVariationsArray = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.estimatedRowHeight = 88
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateLocalData()
+        tableView.reloadData()
+    }
+    
+    func updateLocalData() {
+        
         let defaults = UserDefaults(suiteName: "group.extensiontexttaker")
         defaults?.synchronize()
         
@@ -30,21 +43,28 @@ class MainViewController: UIViewController {
             defaults?.set(textArray, forKey: "TextArray")
             defaults?.synchronize()
         }
-        
-        tableView.estimatedRowHeight = 88
-        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ShowCompose" {
+            
+            let controller = segue.destination as! CreationViewController
+            controller.strings = localTextArray
+        }
     }
-    */
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "ShowAdd", sender: self)
+    }
 
+    @IBAction func composeButtonPressed(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "ShowCompose", sender: self)
+    }
 }
 
 extension MainViewController: UITableViewDataSource {

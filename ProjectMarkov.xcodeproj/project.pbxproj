@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A02DA781DE1919A000E6912 /* MarkovGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A02DA771DE1919A000E6912 /* MarkovGenerator.swift */; };
 		0A173DB71BBFB9A8007EF5B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A173DB61BBFB9A8007EF5B3 /* AppDelegate.swift */; };
 		0A173DBE1BBFB9A8007EF5B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A173DBD1BBFB9A8007EF5B3 /* Assets.xcassets */; };
 		0A173DC11BBFB9A8007EF5B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A173DBF1BBFB9A8007EF5B3 /* LaunchScreen.storyboard */; };
@@ -15,6 +16,10 @@
 		0ACFF36C1DE0AB0300ED1983 /* ActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0ACFF3621DE0AB0300ED1983 /* ActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0ACFF3751DE0AD6100ED1983 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACFF3731DE0AD6100ED1983 /* Main.storyboard */; };
 		0ACFF3771DE0AE3F00ED1983 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFF3761DE0AE3F00ED1983 /* MainViewController.swift */; };
+		0ADA85D61DE1E09D002BAA8F /* ShuffleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA85D51DE1E09D002BAA8F /* ShuffleGenerator.swift */; };
+		0ADA85D81DE1E141002BAA8F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA85D71DE1E141002BAA8F /* Extensions.swift */; };
+		0ADA85DA1DE1E907002BAA8F /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA85D91DE1E907002BAA8F /* CreationViewController.swift */; };
+		0ADA85DE1DE1EDCC002BAA8F /* CreateMotifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA85DD1DE1EDCC002BAA8F /* CreateMotifViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A02DA771DE1919A000E6912 /* MarkovGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkovGenerator.swift; path = Generators/MarkovGenerator.swift; sourceTree = "<group>"; };
 		0A173DB31BBFB9A8007EF5B3 /* ProjectMarkov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectMarkov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A173DB61BBFB9A8007EF5B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A173DBD1BBFB9A8007EF5B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +61,10 @@
 		0ACFF3721DE0AC7A00ED1983 /* ActionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ActionExtension.entitlements; path = ActionExtension/ActionExtension.entitlements; sourceTree = SOURCE_ROOT; };
 		0ACFF3741DE0AD6100ED1983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0ACFF3761DE0AE3F00ED1983 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0ADA85D51DE1E09D002BAA8F /* ShuffleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShuffleGenerator.swift; path = Generators/ShuffleGenerator.swift; sourceTree = "<group>"; };
+		0ADA85D71DE1E141002BAA8F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Extensions/Extensions.swift; sourceTree = "<group>"; };
+		0ADA85D91DE1E907002BAA8F /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreationViewController.swift; path = ViewControllers/CreationViewController.swift; sourceTree = "<group>"; };
+		0ADA85DD1DE1EDCC002BAA8F /* CreateMotifViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateMotifViewController.swift; path = ViewControllers/CreateMotifViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +109,9 @@
 				0ACFF3711DE0AC3600ED1983 /* ProjectMarkov.entitlements */,
 				0A173DB61BBFB9A8007EF5B3 /* AppDelegate.swift */,
 				0A173DCC1BC02ADB007EF5B3 /* Storyboards */,
-				0ACFF3761DE0AE3F00ED1983 /* MainViewController.swift */,
+				0ADA85DC1DE1E97D002BAA8F /* View Controllers */,
+				0ADA85DB1DE1E976002BAA8F /* Generators */,
+				0ADA85D71DE1E141002BAA8F /* Extensions.swift */,
 				0A173DBD1BBFB9A8007EF5B3 /* Assets.xcassets */,
 				0A173DBF1BBFB9A8007EF5B3 /* LaunchScreen.storyboard */,
 				0A173DC21BBFB9A8007EF5B3 /* Info.plist */,
@@ -125,6 +137,25 @@
 			);
 			name = ActionExtension;
 			path = actionExtension;
+			sourceTree = "<group>";
+		};
+		0ADA85DB1DE1E976002BAA8F /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+				0A02DA771DE1919A000E6912 /* MarkovGenerator.swift */,
+				0ADA85D51DE1E09D002BAA8F /* ShuffleGenerator.swift */,
+			);
+			name = Generators;
+			sourceTree = "<group>";
+		};
+		0ADA85DC1DE1E97D002BAA8F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0ACFF3761DE0AE3F00ED1983 /* MainViewController.swift */,
+				0ADA85DD1DE1EDCC002BAA8F /* CreateMotifViewController.swift */,
+				0ADA85D91DE1E907002BAA8F /* CreationViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +275,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ADA85DE1DE1EDCC002BAA8F /* CreateMotifViewController.swift in Sources */,
+				0ADA85D81DE1E141002BAA8F /* Extensions.swift in Sources */,
 				0ACFF3771DE0AE3F00ED1983 /* MainViewController.swift in Sources */,
+				0ADA85D61DE1E09D002BAA8F /* ShuffleGenerator.swift in Sources */,
+				0A02DA781DE1919A000E6912 /* MarkovGenerator.swift in Sources */,
 				0A173DB71BBFB9A8007EF5B3 /* AppDelegate.swift in Sources */,
+				0ADA85DA1DE1E907002BAA8F /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +516,7 @@
 				0ACFF36F1DE0AB0300ED1983 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
