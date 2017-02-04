@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  VariationsViewController.swift
 //  ProjectMarkov
 //
 //  Created by William Robinson on 04/02/2017.
@@ -8,17 +8,15 @@
 
 import UIKit
 
-protocol MotifViewControllerDelegate: class {
-    func presentMarkovViewController()
-}
+class VariationsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet weak var collectionView: UICollectionView!
 
-    weak var delegate: MotifViewControllerDelegate?
-
+    var variationArray = [[String]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(markovGenerator().create(inputArray:burningAirlinesGiveYouSoMuchMore))
+
         // Do any additional setup after loading the view.
     }
 
@@ -27,10 +25,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - IBAction
-    
-    @IBAction func createButtonPressed(_ sender: UIButton) {
-        self.delegate?.presentMarkovViewController()
+    func appendVariationToArray(array: [String]) {
+        
+        variationArray.append(array)
+        
+        if collectionView != nil {
+            collectionView.reloadData()
+        }
     }
     
 
@@ -43,16 +44,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Pass the selected object to the new view controller.
     }
     */
+
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return burningAirlinesGiveYouSoMuchMore.count
+        return variationArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath as IndexPath) as! MotifCollectionViewCell
-        cell.label.text = burningAirlinesGiveYouSoMuchMore[indexPath.row]
+        
+        var string = ""
+        
+        let array = variationArray[indexPath.row]
+        
+        
+        
+        for text in array {
+            string += text + " "
+        }
+        
+        cell.label.text = string
         return cell
     }
     
@@ -60,5 +73,4 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
-
 }

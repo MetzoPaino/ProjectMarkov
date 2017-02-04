@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MarkovViewController.swift
 //  ProjectMarkov
 //
 //  Created by William Robinson on 04/02/2017.
@@ -8,29 +8,30 @@
 
 import UIKit
 
-protocol MotifViewControllerDelegate: class {
-    func presentMarkovViewController()
+protocol MarkovViewControllerDelegate: class {
+    func createdVariation(variation: [String])
+    //func closed()
+
 }
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MarkovViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    weak var delegate: MotifViewControllerDelegate?
-
+    
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var markovArray = markovGenerator().create(inputArray:burningAirlinesGiveYouSoMuchMore)
+    weak var delegate: MarkovViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(markovGenerator().create(inputArray:burningAirlinesGiveYouSoMuchMore))
+
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - IBAction
-    
-    @IBAction func createButtonPressed(_ sender: UIButton) {
-        self.delegate?.presentMarkovViewController()
     }
     
 
@@ -43,16 +44,31 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func retryButtonPressed(_ sender: UIButton) {
+        markovArray = markovGenerator().create(inputArray:burningAirlinesGiveYouSoMuchMore)
+        collectionView.reloadData()
+    }
+    
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        delegate?.createdVariation(variation: markovArray)
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        self.delegate?.createdVariation(variation: markovArray)
+        markovArray = markovGenerator().create(inputArray:burningAirlinesGiveYouSoMuchMore)
+        collectionView.reloadData()
+    }
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return burningAirlinesGiveYouSoMuchMore.count
+        return markovArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath as IndexPath) as! MotifCollectionViewCell
-        cell.label.text = burningAirlinesGiveYouSoMuchMore[indexPath.row]
+        cell.label.text = markovArray[indexPath.row]
         return cell
     }
     
