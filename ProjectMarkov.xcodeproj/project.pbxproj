@@ -17,6 +17,7 @@
 		0ABE3A121E463968004170E5 /* MarkovViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE3A111E463968004170E5 /* MarkovViewController.swift */; };
 		0ABE3A141E464437004170E5 /* VariationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE3A131E464437004170E5 /* VariationsViewController.swift */; };
 		0ABE3A161E4649A9004170E5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE3A151E4649A9004170E5 /* TabBarController.swift */; };
+		0ABE3A181E4652B1004170E5 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE3A171E4652B1004170E5 /* AddViewController.swift */; };
 		0ACFF3651DE0AB0300ED1983 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFF3641DE0AB0300ED1983 /* ActionViewController.swift */; };
 		0ACFF3681DE0AB0300ED1983 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACFF3661DE0AB0300ED1983 /* MainInterface.storyboard */; };
 		0ACFF36C1DE0AB0300ED1983 /* ActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0ACFF3621DE0AB0300ED1983 /* ActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -73,6 +74,7 @@
 		0ABE3A111E463968004170E5 /* MarkovViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkovViewController.swift; path = ViewControllers/MarkovViewController.swift; sourceTree = "<group>"; };
 		0ABE3A131E464437004170E5 /* VariationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VariationsViewController.swift; path = ViewControllers/VariationsViewController.swift; sourceTree = "<group>"; };
 		0ABE3A151E4649A9004170E5 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = ViewControllers/TabBarController.swift; sourceTree = "<group>"; };
+		0ABE3A171E4652B1004170E5 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = ViewControllers/AddViewController.swift; sourceTree = "<group>"; };
 		0ACFF3621DE0AB0300ED1983 /* ActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ACFF3641DE0AB0300ED1983 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		0ACFF3671DE0AB0300ED1983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				0ABE39F61E4629B6004170E5 /* ViewController.swift */,
+				0ABE3A171E4652B1004170E5 /* AddViewController.swift */,
 				0ABE3A131E464437004170E5 /* VariationsViewController.swift */,
 				0ABE3A111E463968004170E5 /* MarkovViewController.swift */,
 				0ABE39FA1E462EC3004170E5 /* PremadeStrings.swift */,
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ABE3A181E4652B1004170E5 /* AddViewController.swift in Sources */,
 				0ABE3A141E464437004170E5 /* VariationsViewController.swift in Sources */,
 				0ABE39F71E4629B6004170E5 /* ViewController.swift in Sources */,
 				0ABE3A101E46354D004170E5 /* MarkovGenerator.swift in Sources */,

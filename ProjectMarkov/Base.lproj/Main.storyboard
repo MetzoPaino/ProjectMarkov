@@ -71,11 +71,25 @@
                                     <constraint firstAttribute="width" secondItem="4x3-sY-Mbl" secondAttribute="height" multiplier="1:1" id="GRW-li-SIl"/>
                                     <constraint firstAttribute="width" constant="62" id="HGX-ue-NV0"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Create">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="createButtonPressed:" destination="nNL-WQ-sNx" eventType="touchUpInside" id="1kU-m9-dnP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i53-AV-y1E">
+                                <rect key="frame" x="16" y="476" width="62" height="62"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="i53-AV-y1E" secondAttribute="height" multiplier="1:1" id="m7E-Bd-egT"/>
+                                    <constraint firstAttribute="width" constant="62" id="sFP-Qd-fkU"/>
+                                </constraints>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="nNL-WQ-sNx" eventType="touchUpInside" id="aa2-Sa-tLh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -85,17 +99,93 @@
                             <constraint firstItem="RM7-B3-aq1" firstAttribute="top" secondItem="4x3-sY-Mbl" secondAttribute="bottom" constant="16" id="Muh-tD-VDT"/>
                             <constraint firstItem="sy5-ZN-hYS" firstAttribute="width" secondItem="5Ef-Gb-mMl" secondAttribute="width" id="Q17-m4-NAr"/>
                             <constraint firstItem="sy5-ZN-hYS" firstAttribute="height" secondItem="5Ef-Gb-mMl" secondAttribute="height" id="ajV-uK-wfx"/>
+                            <constraint firstItem="i53-AV-y1E" firstAttribute="leading" secondItem="5Ef-Gb-mMl" secondAttribute="leading" constant="16" id="e3K-bk-8z7"/>
+                            <constraint firstItem="RM7-B3-aq1" firstAttribute="top" secondItem="i53-AV-y1E" secondAttribute="bottom" constant="16" id="fTI-HF-IuB"/>
                             <constraint firstItem="sy5-ZN-hYS" firstAttribute="centerY" secondItem="5Ef-Gb-mMl" secondAttribute="centerY" id="n9Y-6q-WX6"/>
+                            <constraint firstItem="i53-AV-y1E" firstAttribute="width" secondItem="i53-AV-y1E" secondAttribute="height" multiplier="1:1" id="rjh-qi-3LV"/>
                             <constraint firstItem="sy5-ZN-hYS" firstAttribute="centerX" secondItem="5Ef-Gb-mMl" secondAttribute="centerX" id="vPu-BO-Usj"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Motifs" id="zCw-v5-0s9"/>
                     <navigationItem key="navigationItem" id="ob3-f8-Pgs"/>
+                    <connections>
+                        <outlet property="collectionView" destination="sy5-ZN-hYS" id="Uch-ne-XGi"/>
+                        <segue destination="bkt-Ag-jXS" kind="presentation" identifier="ModalAdd" id="gzr-Zq-Ryp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tg7-nP-oHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1696.8" y="-36.431784107946029"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="2fA-MK-Jd3">
+            <objects>
+                <viewController id="PIu-UU-Dep" customClass="AddViewController" customModule="ProjectMarkov" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SvD-ff-diV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dmz-6S-rTS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="403-Uk-ywm">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z8c-lb-Lql">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-zD-qXy">
+                                <rect key="frame" x="297" y="525" width="62" height="62"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IDV-zD-qXy" secondAttribute="height" multiplier="1:1" id="Dv6-N3-eOi"/>
+                                    <constraint firstAttribute="width" constant="62" id="hts-nf-UZ4"/>
+                                </constraints>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="PIu-UU-Dep" eventType="touchUpInside" id="Wna-x1-yKl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sq-8G-1yu">
+                                <rect key="frame" x="236" y="16" width="123" height="30"/>
+                                <state key="normal" title="Dismiss Keyboard"/>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="PIu-UU-Dep" eventType="touchUpInside" id="LPH-TT-RA8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dmz-6S-rTS" firstAttribute="top" secondItem="IDV-zD-qXy" secondAttribute="bottom" constant="16" id="6JG-qV-4z6"/>
+                            <constraint firstItem="Z8c-lb-Lql" firstAttribute="height" secondItem="403-Uk-ywm" secondAttribute="height" id="9x2-FH-NJp"/>
+                            <constraint firstItem="IDV-zD-qXy" firstAttribute="width" secondItem="IDV-zD-qXy" secondAttribute="height" multiplier="1:1" id="P3O-RJ-XqQ"/>
+                            <constraint firstItem="Z8c-lb-Lql" firstAttribute="centerX" secondItem="403-Uk-ywm" secondAttribute="centerX" id="Q2o-hB-PY8"/>
+                            <constraint firstItem="Z8c-lb-Lql" firstAttribute="centerY" secondItem="403-Uk-ywm" secondAttribute="centerY" id="R6l-Xz-N2A"/>
+                            <constraint firstItem="Z8c-lb-Lql" firstAttribute="width" secondItem="403-Uk-ywm" secondAttribute="width" id="UEw-JY-Jc4"/>
+                            <constraint firstAttribute="trailing" secondItem="0sq-8G-1yu" secondAttribute="trailing" constant="16" id="aEU-Y6-Dq3"/>
+                            <constraint firstAttribute="trailing" secondItem="IDV-zD-qXy" secondAttribute="trailing" constant="16" id="iYM-Oi-bcI"/>
+                            <constraint firstItem="0sq-8G-1yu" firstAttribute="top" secondItem="SvD-ff-diV" secondAttribute="bottom" constant="16" id="wSw-b2-LWJ"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="Rdj-3H-ZPZ"/>
+                    <connections>
+                        <outlet property="tapGestureRecognizer" destination="xPV-aa-GxI" id="s2s-c0-DeL"/>
+                        <outlet property="textView" destination="Z8c-lb-Lql" id="QcK-xr-985"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MtT-1U-q7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xPV-aa-GxI">
+                    <connections>
+                        <action selector="tapGesturePressed:" destination="PIu-UU-Dep" id="P06-E8-kgM"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3375.1999999999998" y="-36.431784107946029"/>
         </scene>
         <!--Markov View Controller-->
         <scene sceneID="veg-gD-LFB">
@@ -252,6 +342,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RPT-Ej-cIt"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="I7D-Sk-5nv">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -337,6 +428,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vs4-ia-rd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="758" y="696"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="z1y-Qv-cUV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bkt-Ag-jXS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XMO-oC-C3Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PIu-UU-Dep" kind="relationship" relationship="rootViewController" id="DCg-4h-B0B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h4M-KZ-jN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2436" y="-36.431784107946029"/>
         </scene>
     </scenes>
 </document>
