@@ -40,8 +40,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="165" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osC-OO-JsA">
-                                                    <rect key="frame" x="9" y="89" width="148.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osC-OO-JsA">
+                                                    <rect key="frame" x="9" y="90" width="148.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -50,10 +50,17 @@
                                         </view>
                                         <color key="backgroundColor" red="0.0" green="0.92549020049999997" blue="0.79607844350000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="osC-OO-JsA" firstAttribute="height" relation="lessThanOrEqual" secondItem="WdH-qg-dUT" secondAttribute="height" multiplier="0.9" id="Td1-BD-TWi"/>
+                                            <constraint firstAttribute="bottom" secondItem="osC-OO-JsA" secondAttribute="bottom" constant="8" id="aLa-Bo-aBe"/>
                                             <constraint firstItem="osC-OO-JsA" firstAttribute="centerY" secondItem="WdH-qg-dUT" secondAttribute="centerY" id="hFt-u9-oq9"/>
                                             <constraint firstItem="osC-OO-JsA" firstAttribute="centerX" secondItem="WdH-qg-dUT" secondAttribute="centerX" id="sLR-BZ-RIL"/>
                                             <constraint firstItem="osC-OO-JsA" firstAttribute="width" secondItem="WdH-qg-dUT" secondAttribute="width" multiplier="0.9" id="wvQ-36-v5Q"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="aLa-Bo-aBe"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="label" destination="osC-OO-JsA" id="VXz-fO-LXi"/>
                                         </connections>
@@ -304,7 +311,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zj1-r1-KrB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rrF-r0-naz">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rrF-r0-naz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -339,6 +347,7 @@
         <scene sceneID="ZRV-Eh-S46">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="glh-lB-fXA" customClass="TabBarController" customModule="ProjectMarkov" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RPT-Ej-cIt"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="I7D-Sk-5nv">

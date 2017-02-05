@@ -22,15 +22,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var motifsArray = burningAirlinesGiveYouSoMuchMore
 
+    var flowLayout: UICollectionViewFlowLayout {
+        return self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(markovGenerator().create(inputArray:burningAirlinesGiveYouSoMuchMore))
-        // Do any additional setup after loading the view.
+        styleView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func styleView() {
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
+        
+        collectionView.collectionViewLayout = layout
+        //collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+//        self.flowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
+//
+
     }
     
     // MARK: - IBAction
@@ -81,4 +94,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.reloadData()
     }
 
+
+}
+
+extension ViewController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        var division = 2.0 as CGFloat
+        
+        let horizontalClass = self.traitCollection.horizontalSizeClass;
+        let verticalClass = self.traitCollection.verticalSizeClass;
+        
+        if horizontalClass == UIUserInterfaceSizeClass.regular && verticalClass == UIUserInterfaceSizeClass.regular {
+            
+            division = division + 1.0
+        }
+        
+        return CGSize(width: view.frame.size.width / division - 16, height: view.frame.size.width / division)
+    }
 }
