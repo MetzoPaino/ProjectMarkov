@@ -12,15 +12,30 @@ protocol MotifViewControllerDelegate: class {
     func presentMarkovViewController()
 }
 
+class MotifData {
+    
+    var motifsArray = [(motif: String, turnedOn: Bool)]()
+    
+    init(motifs: [String]) {
+
+        for string in motifs {
+            
+            motifsArray.append((motif: string, turnedOn: true))
+        }
+    }
+}
+
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, AddViewControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var createButton: UIButton!
 
     weak var delegate: MotifViewControllerDelegate?
 
     var addViewController = AddViewController()
     
-    var motifsArray = burningAirlinesGiveYouSoMuchMore
+    var motifsData = MotifData.init(motifs:burningAirlinesGiveYouSoMuchMore)
+    var currentlyEditingIndex: Int?
 
     var flowLayout: UICollectionViewFlowLayout {
         return self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -34,16 +49,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func styleView() {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
         
         collectionView.collectionViewLayout = layout
-        //collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        
-//        self.flowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
-//
-
     }
     
     // MARK: - IBAction
@@ -56,6 +66,39 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         performSegue(withIdentifier: "ModalAdd", sender: self)
     }
 
+    @IBAction func motifEditButtonPressed(_ sender: UIButton) {
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+        }
+        alertController.addAction(cancelAction)
+        
+        let destroyAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.deleteMotif(index: sender.tag)
+        }
+        
+        let editAction = UIAlertAction(title: "Edit", style: .`default`) { action in
+            self.editMotif(index: sender.tag)
+        }
+        alertController.addAction(destroyAction)
+        alertController.addAction(editAction)
+
+        self.present(alertController, animated: true) {
+            // ...
+        }
+    }
+    
+    func deleteMotif(index: Int) {
+        motifsData.motifsArray.remove(at: index)
+        collectionView.reloadData()
+    }
+    
+    func editMotif(index: Int) {
+        let text = motifsData.motifsArray[index].motif
+        currentlyEditingIndex = index
+        performSegue(withIdentifier: "ModalEdit", sender: text)
+    }
     
     // MARK: - Navigation
 
@@ -67,6 +110,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let navigationController = segue.destination as! UINavigationController
             addViewController = navigationController.topViewController as! AddViewController
             addViewController.delegate = self
+            addViewController.currentMode = Mode.add
+
+        } else if segue.identifier == "ModalEdit" {
+            
+            let string = sender as! String
+            
+            let navigationController = segue.destination as! UINavigationController
+            addViewController = navigationController.topViewController as! AddViewController
+            addViewController.delegate = self
+            addViewController.editText = string
+            addViewController.currentMode = Mode.edit
         }
         
     }
@@ -74,27 +128,81 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return motifsArray.count
+        return motifsData.motifsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath as IndexPath) as! MotifCollectionViewCell
-        cell.label.text = motifsArray[indexPath.row]
+        
+        let test = motifsData.motifsArray[indexPath.row]
+        
+        cell.label.text = test.motif
+        cell.optionsButton.tag = indexPath.row
+        cell.turnedOn = test.turnedOn
+        
+        if test.turnedOn == true {
+            cell.backgroundColor = UIColor.white
+        } else {
+            cell.backgroundColor = UIColor.blue
+        }
+        
+        cell.configureCell(turnedOn: test.turnedOn)
+        
         return cell
     }
     
     // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    }
-    
-    func savedString(string: String) {
-        motifsArray.insert(string, at: 0)
+        motifsData.motifsArray[indexPath.row].turnedOn = !motifsData.motifsArray[indexPath.row].turnedOn
+        toggleCreateButton()
         collectionView.reloadData()
     }
-
-
+    
+    // MARK: - Toggle
+    
+    func toggleCreateButton() {
+        
+        var enabled = false
+        
+        for motif in motifsData.motifsArray {
+            
+            if motif.turnedOn == true {
+                enabled = true
+                break
+            }
+        }
+        createButton.isEnabled = enabled
+        
+        if createButton.isEnabled == true {
+            createButton.backgroundColor = .blue
+        } else {
+            createButton.backgroundColor = .gray
+        }
+    }
+    
+    // MARK: - Add Delegate
+    
+    func savedString(string: String) {
+        
+        if string != "" {
+            motifsData.motifsArray.insert((motif: string, turnedOn: true), at: 0)
+            collectionView.reloadData()
+        }
+    }
+    
+    func editedString(string: String) {
+        
+        if string != "" {
+            
+            if let currentlyEditingIndex = currentlyEditingIndex {
+                motifsData.motifsArray[currentlyEditingIndex].motif = string
+            }
+            currentlyEditingIndex = nil
+            collectionView.reloadData()
+        }
+    }
 }
 
 extension ViewController : UICollectionViewDelegateFlowLayout {

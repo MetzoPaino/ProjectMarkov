@@ -8,30 +8,88 @@
 
 import UIKit
 
+enum Mode {
+    case add
+    case edit
+}
+
 protocol AddViewControllerDelegate: class {
     func savedString(string: String)
+    func editedString(string: String)
 }
 
 class AddViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var saveButtonBottomConstraint: NSLayoutConstraint!
+    
+
     
     weak var delegate: AddViewControllerDelegate?
 
+    var editText: String?
+    var currentMode: Mode!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        addNotifications()
+        
         textView.becomeFirstResponder()
         textView.delegate = self
+        
+        if let editText = editText {
+            textView.text = editText
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
+    
+    // MARK: - NSNotification
+    
+    func addNotifications() {
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(self.receivedKeyboardNotification(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(self.receivedKeyboardNotification(_:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+    }
+    
+    func receivedKeyboardNotification(_ notification: Notification) {
+        
+        if notification.name == NSNotification.Name.UIKeyboardDidShow {
+            
+            let info = (notification as NSNotification).userInfo! as Dictionary
+            
+            if let keyboardSize = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                
+                textView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
+                textView.scrollIndicatorInsets = textView.contentInset
+                saveButtonBottomConstraint.constant = keyboardSize.height + 16
+                view.layoutIfNeeded()
+            }
+            
+        } else if notification.name == NSNotification.Name.UIKeyboardDidHide {
+            
+            textView.contentInset = UIEdgeInsets.zero
+            textView.scrollIndicatorInsets = textView.contentInset
+        }
+    }
+
+    
+    // MARK: - IBActions
+    
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        self.delegate?.savedString(string: textView.text)
+        
+        if currentMode == Mode.add {
+            self.delegate?.savedString(string: textView.text)
+        } else if currentMode == Mode.edit {
+            self.delegate?.editedString(string: textView.text)
+        }
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -39,10 +97,6 @@ class AddViewController: UIViewController, UITextViewDelegate {
         view.endEditing(true)
     }
 
-    @IBAction func tapGesturePressed(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-        tapGestureRecognizer.isEnabled = false
-    }
     /*
     // MARK: - Navigation
 
@@ -52,9 +106,4 @@ class AddViewController: UIViewController, UITextViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        tapGestureRecognizer.isEnabled = true
-    }
-
 }

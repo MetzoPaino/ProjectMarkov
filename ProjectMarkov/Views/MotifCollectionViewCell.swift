@@ -11,4 +11,18 @@ import UIKit
 class MotifCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var optionsButton: UIButton!
+    
+    var turnedOn = true
+    
+    func configureCell(turnedOn: Bool) {
+        
+        if turnedOn == true {
+            label.textColor = .black
+            self.backgroundColor = .white
+        } else {
+            label.textColor = .gray
+            self.backgroundColor = .lightGray
+        }
+    }
 }

@@ -65,7 +65,7 @@ class markovGenerator {
     
     var randomPick = 0
     var randomSuffix = 0
-    var chunkLength = 8.0
+    var chunkLength = 6.0
     var currentChunkLength = 0.0
     
     // MARK:- Objects
