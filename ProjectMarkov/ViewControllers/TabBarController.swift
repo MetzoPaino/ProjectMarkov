@@ -43,13 +43,14 @@ class TabBarController: UITabBarController, MarkovViewControllerDelegate, MotifV
             let navigationController = segue.destination as! UINavigationController
             markovViewController = navigationController.topViewController as! MarkovViewController
             markovViewController.delegate = self
+            
+            let motifs = sender as! [String]
+            markovViewController.providedText = motifs
         }
-        
-        
     }
     
-    func presentMarkovViewController() {
-        self.performSegue(withIdentifier: "ModalMarkov", sender: self)
+    func presentMarkovViewControllerWithMotifs(motifs: [String]) {
+        self.performSegue(withIdentifier: "ModalMarkov", sender: motifs)
     }
     
     func createdVariation(variation: [String]) {

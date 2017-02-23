@@ -20,11 +20,13 @@ class MarkovViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var markovArray = markovGenerator().create(inputArray:burningAirlinesGiveYouSoMuchMore)
+    var providedText = [String]()
+    var markovArray = [String]()// markovGenerator().create(inputArray:burningAirlinesGiveYouSoMuchMore)
     weak var delegate: MarkovViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        markovArray = markovGenerator().create(inputArray:providedText)
 
         // Do any additional setup after loading the view.
     }
@@ -45,7 +47,7 @@ class MarkovViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     */
     @IBAction func retryButtonPressed(_ sender: UIButton) {
-        markovArray = markovGenerator().create(inputArray:burningAirlinesGiveYouSoMuchMore)
+        markovArray = markovGenerator().create(inputArray:providedText)
         collectionView.reloadData()
     }
     

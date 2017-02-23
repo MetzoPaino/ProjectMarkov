@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MotifViewControllerDelegate: class {
-    func presentMarkovViewController()
+    func presentMarkovViewControllerWithMotifs(motifs: [String])
 }
 
 class MotifData {
@@ -59,7 +59,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // MARK: - IBAction
     
     @IBAction func createButtonPressed(_ sender: UIButton) {
-        self.delegate?.presentMarkovViewController()
+        
+        var motifArray = [String]()
+        
+        for motif in motifsData.motifsArray {
+            
+            if motif.turnedOn == true {
+                motifArray.append(motif.motif)
+            }
+        }
+        
+        self.delegate?.presentMarkovViewControllerWithMotifs(motifs: motifArray)
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
@@ -173,12 +183,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 break
             }
         }
-        createButton.isEnabled = enabled
         
-        if createButton.isEnabled == true {
-            createButton.backgroundColor = .blue
-        } else {
-            createButton.backgroundColor = .gray
+        if createButton.isEnabled != enabled {
+            createButton.isEnabled = enabled
+            
+            if createButton.isEnabled == true {
+                createButton.backgroundColor = .blue
+            } else {
+                createButton.backgroundColor = .gray
+            }
         }
     }
     

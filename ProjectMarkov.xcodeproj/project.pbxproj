@@ -178,13 +178,13 @@
 		0ADA85DC1DE1E97D002BAA8F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0ABE3A151E4649A9004170E5 /* TabBarController.swift */,
 				0ABE39F61E4629B6004170E5 /* ViewController.swift */,
 				0ABE3A171E4652B1004170E5 /* AddViewController.swift */,
 				0ABE3A131E464437004170E5 /* VariationsViewController.swift */,
 				0ABE3A111E463968004170E5 /* MarkovViewController.swift */,
 				0ABE39FA1E462EC3004170E5 /* PremadeStrings.swift */,
 				0ABE39F81E462D4E004170E5 /* MotifCollectionViewCell.swift */,
-				0ABE3A151E4649A9004170E5 /* TabBarController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
