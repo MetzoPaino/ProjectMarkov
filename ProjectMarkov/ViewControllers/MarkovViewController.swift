@@ -46,13 +46,15 @@ class MarkovViewController: UIViewController, UICollectionViewDelegate, UICollec
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - IBAction
+
     @IBAction func retryButtonPressed(_ sender: UIButton) {
         markovArray = markovGenerator().create(inputArray:providedText)
         collectionView.reloadData()
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
-        delegate?.createdVariation(variation: markovArray)
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
