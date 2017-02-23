@@ -12,7 +12,7 @@ class VariationsViewController: UIViewController, UICollectionViewDelegate, UICo
 
     @IBOutlet weak var collectionView: UICollectionView!
 
-    var variationArray = [[String]]()
+    //var variationArray = [[String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +27,47 @@ class VariationsViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func appendVariationToArray(array: [String]) {
         
-        variationArray.append(array)
-        
+        VariationManager().appendVariationToArray(array: array)
         if collectionView != nil {
             collectionView.reloadData()
         }
     }
     
+    // MARK: - IBActions
+    
+    @IBAction func motifEditButtonPressed(_ sender: UIButton) {
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+        }
+        alertController.addAction(cancelAction)
+        
+        let destroyAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.deleteVariation(index: sender.tag)
+        }
+        
+//        let editAction = UIAlertAction(title: "Edit", style: .`default`) { action in
+//            self.editMotif(index: sender.tag)
+//        }
+        alertController.addAction(destroyAction)
+        //alertController.addAction(editAction)
+        
+        self.present(alertController, animated: true) {
+            // ...
+        }
+    }
+    
+    func deleteVariation(index: Int) {
+//        variationArray.remove(at: index)
+//        collectionView.reloadData()
+    }
+    
+    func editMotif(index: Int) {
+//        let text = motifsData.motifsArray[index].motif
+//        currentlyEditingIndex = index
+//        performSegue(withIdentifier: "ModalEdit", sender: text)
+    }
 
     /*
     // MARK: - Navigation
@@ -48,7 +82,7 @@ class VariationsViewController: UIViewController, UICollectionViewDelegate, UICo
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return variationArray.count
+        return VariationManager().variationCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -57,9 +91,9 @@ class VariationsViewController: UIViewController, UICollectionViewDelegate, UICo
         
         var string = ""
         
-        let array = variationArray[indexPath.row]
+        let array = VariationManager().variationArrayForIndex(index:indexPath.row) //variationArray[indexPath.row]
         
-        
+        cell.optionsButton.tag = indexPath.row
         
         for text in array {
             string += text + " "

@@ -12,9 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let dataManager = DataManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        if let navigationController = window!.rootViewController as? UINavigationController {
+            
+            let controller = navigationController.topViewController as! TabBarController
+            controller.dataManager = dataManager
+        }
         return true
     }
 
@@ -24,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        saveData()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -35,9 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+        saveData()
     }
     
     func saveData() {
+        dataManager.saveData()
     }
 }
 

@@ -10,6 +10,8 @@ import UIKit
 
 class TabBarController: UITabBarController, MarkovViewControllerDelegate, MotifViewControllerDelegate {
 
+    var dataManager = DataManager()
+    
     var markovViewController = MarkovViewController()
     var variationController = VariationsViewController()
     var motifViewController = ViewController()

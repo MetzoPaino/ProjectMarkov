@@ -10,6 +10,8 @@
 		0A173DB71BBFB9A8007EF5B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A173DB61BBFB9A8007EF5B3 /* AppDelegate.swift */; };
 		0A173DBE1BBFB9A8007EF5B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A173DBD1BBFB9A8007EF5B3 /* Assets.xcassets */; };
 		0A173DC11BBFB9A8007EF5B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A173DBF1BBFB9A8007EF5B3 /* LaunchScreen.storyboard */; };
+		0A21840E1E5F075200B2ABD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21840D1E5F075200B2ABD3 /* DataManager.swift */; };
+		0A2184101E5F298B00B2ABD3 /* VariationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21840F1E5F298B00B2ABD3 /* VariationManager.swift */; };
 		0ABE39F71E4629B6004170E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE39F61E4629B6004170E5 /* ViewController.swift */; };
 		0ABE39F91E462D4E004170E5 /* MotifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE39F81E462D4E004170E5 /* MotifCollectionViewCell.swift */; };
 		0ABE39FB1E462EC3004170E5 /* PremadeStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE39FA1E462EC3004170E5 /* PremadeStrings.swift */; };
@@ -65,6 +67,8 @@
 		0A173DBD1BBFB9A8007EF5B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A173DC01BBFB9A8007EF5B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A173DC21BBFB9A8007EF5B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A21840D1E5F075200B2ABD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Managers/DataManager.swift; sourceTree = "<group>"; };
+		0A21840F1E5F298B00B2ABD3 /* VariationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VariationManager.swift; path = Managers/VariationManager.swift; sourceTree = "<group>"; };
 		0ABE39F61E4629B6004170E5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewControllers/ViewController.swift; sourceTree = "<group>"; };
 		0ABE39F81E462D4E004170E5 /* MotifCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotifCollectionViewCell.swift; path = Views/MotifCollectionViewCell.swift; sourceTree = "<group>"; };
 		0ABE39FA1E462EC3004170E5 /* PremadeStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PremadeStrings.swift; path = Helpers/PremadeStrings.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				0ABE3A111E463968004170E5 /* MarkovViewController.swift */,
 				0ABE39FA1E462EC3004170E5 /* PremadeStrings.swift */,
 				0ABE39F81E462D4E004170E5 /* MotifCollectionViewCell.swift */,
+				0A21840D1E5F075200B2ABD3 /* DataManager.swift */,
+				0A21840F1E5F298B00B2ABD3 /* VariationManager.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -315,6 +321,8 @@
 				0ABE3A121E463968004170E5 /* MarkovViewController.swift in Sources */,
 				0ADA85D81DE1E141002BAA8F /* Extensions.swift in Sources */,
 				0ABE39F91E462D4E004170E5 /* MotifCollectionViewCell.swift in Sources */,
+				0A21840E1E5F075200B2ABD3 /* DataManager.swift in Sources */,
+				0A2184101E5F298B00B2ABD3 /* VariationManager.swift in Sources */,
 				0A173DB71BBFB9A8007EF5B3 /* AppDelegate.swift in Sources */,
 				0ABE39FB1E462EC3004170E5 /* PremadeStrings.swift in Sources */,
 			);

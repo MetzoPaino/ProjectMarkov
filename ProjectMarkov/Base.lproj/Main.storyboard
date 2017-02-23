@@ -153,7 +153,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z8c-lb-Lql">
                                 <rect key="frame" x="0.0" y="20" width="375" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-zD-qXy">
@@ -388,29 +388,48 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="iZu-dK-8pK" customClass="MotifCollectionViewCell" customModule="ProjectMarkov" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="vao-am-Yv0" customClass="MotifCollectionViewCell" customModule="ProjectMarkov" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="165" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="165" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rht-y5-BKb">
-                                                    <rect key="frame" x="8" y="89" width="149" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUG-65-cnb">
+                                                    <rect key="frame" x="9" y="87.5" width="148.5" height="26.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Veh-Rm-izm">
+                                                    <rect key="frame" x="127" y="8" width="30" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                    <state key="normal" title="● ● ●"/>
+                                                    <connections>
+                                                        <action selector="motifEditButtonPressed:" destination="nNL-WQ-sNx" eventType="touchUpInside" id="KKe-qr-XBO"/>
+                                                        <action selector="motifEditButtonPressed:" destination="jiD-SL-3Fi" eventType="touchUpInside" id="nGl-rj-JIy"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.97647058819999999" green="0.98431372549999996" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="Rht-y5-BKb" firstAttribute="centerX" secondItem="iZu-dK-8pK" secondAttribute="centerX" id="LDO-5g-6CM"/>
-                                            <constraint firstItem="Rht-y5-BKb" firstAttribute="width" secondItem="iZu-dK-8pK" secondAttribute="width" multiplier="0.9" id="rhT-NR-Unz"/>
-                                            <constraint firstItem="Rht-y5-BKb" firstAttribute="centerY" secondItem="iZu-dK-8pK" secondAttribute="centerY" id="z3M-OL-QNE"/>
+                                            <constraint firstAttribute="trailing" secondItem="Veh-Rm-izm" secondAttribute="trailing" constant="8" id="0rq-pe-Pzt"/>
+                                            <constraint firstItem="uUG-65-cnb" firstAttribute="centerY" secondItem="vao-am-Yv0" secondAttribute="centerY" id="4fE-eY-ps3"/>
+                                            <constraint firstItem="uUG-65-cnb" firstAttribute="centerX" secondItem="vao-am-Yv0" secondAttribute="centerX" id="Dx0-Av-b0x"/>
+                                            <constraint firstItem="uUG-65-cnb" firstAttribute="height" relation="lessThanOrEqual" secondItem="vao-am-Yv0" secondAttribute="height" multiplier="0.9" id="KDI-PB-no3"/>
+                                            <constraint firstAttribute="bottom" secondItem="uUG-65-cnb" secondAttribute="bottom" constant="8" id="Zt1-q4-ROx"/>
+                                            <constraint firstItem="Veh-Rm-izm" firstAttribute="top" secondItem="vao-am-Yv0" secondAttribute="top" constant="8" id="bcD-1O-40e"/>
+                                            <constraint firstItem="uUG-65-cnb" firstAttribute="width" secondItem="vao-am-Yv0" secondAttribute="width" multiplier="0.9" id="fk2-yf-6e6"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Zt1-q4-ROx"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
-                                            <outlet property="label" destination="Rht-y5-BKb" id="isw-NV-RMm"/>
+                                            <outlet property="label" destination="uUG-65-cnb" id="haJ-nZ-Why"/>
+                                            <outlet property="optionsButton" destination="Veh-Rm-izm" id="Dgw-2D-0cn"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
